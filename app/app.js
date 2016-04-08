@@ -17,6 +17,10 @@ moodieApp.config(function($routeProvider, $httpProvider, $authProvider) {
 			templateUrl: 'views/facebook.html',
 			controller: 'FacebookCtrl'
 		}).
+		when('/start1', {
+			templateUrl: 'views/start1.html',
+			controller: 'Start1Ctrl'
+		}).
 			otherwise({
 			redirectTo: '/'
 		});
