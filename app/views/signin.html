@@ -1,0 +1,9 @@
+<button ng-click="signInFacebook()">Sign in with Facebook</button>
+
+<form ng-submit="signIn(credentials)">
+	<h2>Sign in</h2>
+
+	<input name="email" type="email" ng-model="credentials.email">
+	<input name="password" type="password" ng-model="credentials.password">
+	<input type="submit">
+</form>
