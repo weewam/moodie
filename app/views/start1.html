@@ -1,0 +1,22 @@
+<div align="center">
+<br/>
+<h1>Welcome <br/> {{name}}</h1>
+<br/>
+<br/>
+<h1>What are you in the mood for?</h1>
+<h2>Select the genres you would like to watch</h2>
+<br/>
+<br/>
+
+<div class="container">
+    <div align="center" class="btn-group col-xs-12" data-toggle="buttons">
+        <label ng-repeat="movie in movies | unique: 'movie.genre'" class="btn btn-default">
+            <input type="checkbox" name="genre" value="{{movie.genre}}">{{movie.genre}}
+        </label>
+    </div>
+</div>
+<br/>
+<br/>
+<br/>
+<a href="#/start2" class="btn btn-warning btn-lg">NEXT</a>
+</div>
