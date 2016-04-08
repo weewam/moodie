@@ -25,6 +25,10 @@ moodieApp.config(function($routeProvider, $httpProvider, $authProvider) {
 			templateUrl: 'views/movie.html',
 			controller: 'MovieCtrl'
 		}).
+		when('/start1', {
+			templateUrl: 'views/start1.html',
+			controller: 'Start1Ctrl'
+		}).
 			otherwise({
 			redirectTo: '/'
 		});
