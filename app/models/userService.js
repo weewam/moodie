@@ -11,7 +11,6 @@ moodieApp.factory('User', function() {
           avatar: ''
         };
 
-        console.log(data);
         user = data;
 
         this.getName = function() {
