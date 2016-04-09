@@ -21,10 +21,10 @@ var Movie = function(data) {
     movie.title = data.title;
     movie.synopsis = data.overview;
     movie.runtime = data.runtime;
-    movie.background = "http://image.tmdb.org/t/p/w780/" + data.backdrop;
+    movie.background = "http://image.tmdb.org/t/p/w780" + data.backdrop_path;
     movie.release_date = data.release_date;
-    movie.trailer = (data.trailers.youtube) ? data.trailers.youtube.source : null;
-
+    movie.trailer = (data.trailers.youtube) ? data.trailers.youtube[0].source : null;
+    
     //Populate genre list with necessary data
     for (var i = 0; i < data.genres.length; i++) {
         movie.genres.push(data.genres[i].name);
@@ -32,25 +32,25 @@ var Movie = function(data) {
 
     //Populate cast list with necessary data
     for (var i = 0; i < data.credits.cast.length; i++) {
-        var cast = {};
+        var person = {};
 
-        cast.id = data.credits.cast[i].id;
-        cast.name = data.credits.cast[i].name;
-        cast.character = data.credits.cast[i].character;
-        cast.avatar = (data.credits.cast[i].profile_path) ? "http://image.tmdb.org/t/p/w185/" + data.credits.cast[i].profile_path : null;
+        person.id = data.credits.cast[i].id;
+        person.name = data.credits.cast[i].name;
+        person.character = data.credits.cast[i].character;
+        person.avatar = (data.credits.cast[i].profile_path) ? "http://image.tmdb.org/t/p/w185" + data.credits.cast[i].profile_path : null;
 
-        movie.cast.push(cast);
+        movie.cast.push(person);
     };
 
     //Populate cast list with necessary data
     for (var i = 0; i < data.credits.crew.length; i++) {
-        var crew = {};
+        var person = {};
 
-        crew.id = data.credits.crew[i].id,
-        crew.name = data.credits.crew[i].name,
-        crew.job = data.credits.crew[i].job
+        person.id = data.credits.crew[i].id,
+        person.name = data.credits.crew[i].name,
+        person.job = data.credits.crew[i].job
 
-        movie.crew.push(crew);
+        movie.crew.push(person);
     };
 
     return movie;

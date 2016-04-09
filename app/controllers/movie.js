@@ -1,6 +1,6 @@
 'use strict';
 
-moodieApp.controller('MovieCtrl', function ($scope, $routeParams, $http, Movie) {
+moodieApp.controller('MovieCtrl', function($scope, $routeParams, $http) {
     var load = function(id) {
         var req = {
             method: 'GET',
@@ -9,10 +9,9 @@ moodieApp.controller('MovieCtrl', function ($scope, $routeParams, $http, Movie) 
         }
 
         $http(req).then(function(response){
-            $scope.movie = new Movie(response.data);
+            console.log(new Movie(response.data))
         });
     }
 
-    $scope.movie = null;
     load($routeParams.MovieID);
 });

@@ -26,7 +26,7 @@ moodieApp.factory('AuthService', function($http) {
         $http.post('http://52.16.209.9/auth/email', JSON.stringify(credentials)).then(handleSuccess, handleError);
     }
 
-    this.signUp = function(data) {
+    this.signUp = function(credentials) {
         $http.post('http://52.16.209.9/register', JSON.stringify(credentials)).then(handleSuccess, handleError);
     }
 
