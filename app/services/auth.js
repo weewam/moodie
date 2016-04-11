@@ -2,7 +2,7 @@
   Authenticaion Service
   handles sign in and sign up
 */
-moodieApp.factory('AuthService', function($http) {
+moodieApp.factory('AuthService', function($http, $auth) {
     var user_id = null,
         user = null;
 
