@@ -1,6 +1,6 @@
 'use strict';
 
-moodieApp.controller('SignupCtrl', function ($scope, $http, $auth, User) {
+moodieApp.controller('SignupCtrl', function ($scope, $http, $auth, AuthService) {
     $scope.credentials = {
         name: '',
         email: '',
@@ -8,8 +8,6 @@ moodieApp.controller('SignupCtrl', function ($scope, $http, $auth, User) {
     };
 
     $scope.signUp = function(credentials) {
-        $http.post('http://52.16.209.9/register', JSON.stringify(credentials)).then(function(response){
-            $scope.user = new User(response.data);
-        });
+	AuthService.signUp(credentials);
     };
 });

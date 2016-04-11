@@ -6,19 +6,15 @@ var moodieApp = angular.module('moodie', ['ngRoute','satellizer']);
 moodieApp.config(function($routeProvider, $httpProvider, $authProvider) {
 	$routeProvider.
 		when('/', {
-			templateUrl: 'views/view1.html',
-			controller: 'View1Ctrl'
-		}).
-		when('/view2', {
-			templateUrl: 'views/view2.html',
-			controller: 'View2Ctrl'
+			templateUrl: 'views/start1.html',
+			controller: 'Start1Ctrl'
 		}).
 		when('/signin', {
-			templateUrl: 'views/signin.html',
+			templateUrl: 'views/view1.html',
 			controller: 'SigninCtrl'
 		}).
 		when('/signup', {
-			templateUrl: 'views/signup.html',
+			templateUrl: 'views/view2.html',
 			controller: 'SignupCtrl'
 		}).
 		when('/movie/:MovieID', {

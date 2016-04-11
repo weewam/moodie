@@ -1,6 +1,6 @@
 'use strict';
 
-moodieApp.controller('SigninCtrl', function ($scope, $http, $auth, User) {
+moodieApp.controller('SigninCtrl', function ($scope, AuthService) {
     $scope.user = null;
     $scope.credentials = {
         email: '',
@@ -8,16 +8,10 @@ moodieApp.controller('SigninCtrl', function ($scope, $http, $auth, User) {
     };
 
     $scope.signInFacebook = function() {
-        $auth.authenticate('facebook').then(function(){
-            $http.post('http://52.16.209.9/auth/facebook').then(function(response) {
-                $scope.user = new User(response.data);
-            });
-        });
+	AuthService.facebookSignIn();
     };
 
     $scope.signIn = function(credentials) {
-        $http.post('http://52.16.209.9/auth/email', JSON.stringify(credentials)).then(function(response){
-            $scope.user = new User(response.data);
-        });
+	console.log(AuthService.emailSignIn(credentials));
     };
 });
