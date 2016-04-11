@@ -6,6 +6,13 @@ moodieApp.factory('AuthService', function($http, $auth) {
     var user_id = null,
         user = null;
 
+    //Populate with fake data until we handle login.
+    var user = {
+        name: 'Ibrahim Asfadai',
+        email: 'ibrahim.asfadai@gmail.com',
+        avatar: 'https://graph.facebook.com/v2.5/10156705467595290/picture?width=1920'
+    };
+
     var handleSuccess = function(response) {
         user_id = response.data.id;
         user = new User(response.data);
