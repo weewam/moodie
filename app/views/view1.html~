@@ -1,0 +1,31 @@
+<div align="center">
+<br/>
+<img src="images/logo.png" />
+<br/>
+<br/>
+<br/>
+<button ng-click="signInFacebook()" class="btn btn-info btn-sm">Sign in with Facebook</button>
+<br/>
+<br/>
+<form ng-submit="signIn(credentials)">
+	<h2>Sign in</h2>
+
+	<input name="email" type="email" ng-model="credentials.email" placeholder="Email">
+	<br/>
+	<input name="password" type="password" ng-model="credentials.password" placeholder="Password">
+	<br/>
+	<br/>
+	<input class="btn btn-warning btn-lg" type="submit" value="SIGN IN">
+</form>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div style="color:lightgrey;">Don't have an account? <a style="color:white;" href="#/view2">Sign up</a>
+</div>
+
+
+
+

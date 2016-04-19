@@ -1,0 +1,26 @@
+<div align="center">
+<br/>
+<img src="images/logo.png" />
+<br/>
+<br/>
+<br/>
+<form ng-submit="signUp(credentials)">
+	<input name="name" type="text" ng-model="credentials.name" placeholder="Name">
+	<br/>
+	<input name="email" type="email" ng-model="credentials.email" placeholder="Email">
+	<br/>
+	<input name="password" type="password" ng-model="credentials.password" placeholder="Password">
+	<br/>
+<br/>
+<br/>
+<br/>
+<br/>	
+	<input type="submit" value="SIGN UP" class="btn btn-warning btn-lg" >
+</form>
+<br/>
+
+<br/>
+<div style="color:lightgrey;">Already have an account? <a style="color:white;" href="#/signin">Sign in</a>
+</div>
+
+

@@ -12,7 +12,7 @@
 <div class="container">
     <div align="center" class="btn-group col-xs-12" data-toggle="buttons">
         <label ng-repeat="genre in genres()" class="btn btn-default">
-            <input ng-class = "{active: genre.state==1}" ng-click ="addGenre(genre)" type="checkbox" name="{{genre.name}}" value="{{genre.id}}">{{genre.name}}
+            <input class = "active" ng-click ="addGenre(genre)" type="checkbox" name="{{genre.name}}" value="{{genre.id}}">{{genre.name}}
         </label>
     </div>
 </div>
