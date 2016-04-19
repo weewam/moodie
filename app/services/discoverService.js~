@@ -12,6 +12,10 @@ moodieApp.factory('Discover', function ($resource) {
   // check lab 5 instructions for details
 //DinnerModel Object constructor
  
+	this.maxRat = 0;
+	this.minRat = 0;
+	this.APIkey= 'b0a5b20c668da9800946e85508c3c44f';	
+
 	this.genres = [
 		{
                      name:"Action",
@@ -109,7 +113,7 @@ moodieApp.factory('Discover', function ($resource) {
 		if(genre.state == 0){
 			genre.state = 1;
 		}
-		if(genre.state == 1){
+		else if(genre.state == 1){
 			genre.state = 0;
 		}
 		console.log(genre.name, genre.state);
@@ -119,7 +123,12 @@ moodieApp.factory('Discover', function ($resource) {
 	this.getGenres = function(){
 		return this.genres;
 	}
-
+	
+	this.setRating = function(Min,Max){
+		console.log(this.maxRat = Max);
+		console.log(this.minRat = Min);
+	}
+		
 
 	this.MovieSearch = function(){
 		var chosen = '';
@@ -128,7 +137,7 @@ moodieApp.factory('Discover', function ($resource) {
 				chosen = chosen + ',' + genre.id;
 			}
 		}
-		$resource('http://api.themoviedb.org/3/discover/?api_key=b0a5b20c668da9800946e85508c3c44f&with_genres=',{with_genres:chosen});
+		$resource('http://api.themoviedb.org/3/discover',{with_genres:chosen, vote_average.gte:this.maxRat,vote_average.lte:this.minRat, api_key:this.APIkey});
 	}
 
 return this;
