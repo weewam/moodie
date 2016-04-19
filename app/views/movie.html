@@ -1,0 +1,77 @@
+<div id="specific-movie" class="page-container">
+	<div class="page">
+		<header class="backdrop" style="background:url({{ getBackground() }})">
+			<div class="content">
+				<figure class="rating-circle">
+					<div class="inner">
+						<span>{{ getRating() }}</span>
+						<h4>rating</h4>
+					</div>
+				</figure>
+
+				<h1 class="movie-title">{{ getTitle() }} <span class="year">{{ getYear() }}</span></h1>
+				<ul class="genre-list">
+					<li ng-repeat="genre in getGenres() | limitTo: 4">{{ genre }}</li>
+				</ul>
+			</div>
+
+			<a class="rounded button">Watch trailer</a>
+		</header>
+
+		<section class="trivia clearfix">
+			<div>
+				<span>{{ getRuntime() || "N/A" }}</span>
+				<h4>Runtime</h4>
+			</div>
+
+			<div>
+				<span>{{ getReleaseDate() || "N/A" }}</span>
+				<h4>Release date</h4>
+			</div>			
+		</section>
+
+		<div class="content">
+			<section class="synopsis clearfix">
+				<header>
+					<h3 class="with-border">Synopsis</h3>
+				</header>
+
+				<p>{{ getSynopsis() }}</p>
+			</section>
+
+			<section ng-show="getCast().length" class="cast clearfix">
+				<header>
+					<h3 class="with-border">Cast</h3>
+				</header>
+
+				<ul class="person-list">
+					<li ng-repeat="actor in getCast() | limitTo: 3">
+						<a class="clearfix" ng-href="#/person/{{ actor.id }}">
+							<figure>
+								<img src="{{ actor.avatar }}">
+							</figure>
+
+							<p>{{ actor.name }}</p>
+							<span>{{ actor.character }}</span>
+						</a>
+					</li>
+				</ul>
+			</section>
+
+			<section ng-show="getCrew().length" class="credits clearfix">
+				<header>
+					<h3 class="with-border">Cast</h3>
+				</header>
+
+				<ul class="person-list">
+					<li ng-repeat="person in getCrew() | limitTo: 3">
+						<a class="clearfix" href="#/person/{{ person.id }}">
+							<p>{{ person.name }}</p>
+							<span>{{ person.job }}</span>
+						</a>
+					</li>
+				</ul>
+			</section>
+		</div>
+	</div>
+</div>

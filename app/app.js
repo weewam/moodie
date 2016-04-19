@@ -1,13 +1,17 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-var moodieApp = angular.module('moodie', ['ngRoute','satellizer']);
+var moodieApp = angular.module('moodie', ['ngRoute','rzModule','satellizer']);
 
 moodieApp.config(function($routeProvider, $httpProvider, $authProvider) {
 	$routeProvider.
 		when('/', {
 			templateUrl: 'views/start1.html',
 			controller: 'Start1Ctrl'
+		}).
+		when('/additional-settings', {
+			templateUrl: 'views/additional-settings.html',
+			controller: 'AdditionalSettingsCtrl'
 		}).
 		when('/signin', {
 			templateUrl: 'views/view1.html',

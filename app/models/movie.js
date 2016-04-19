@@ -6,6 +6,7 @@ var Movie = function(data) {
     var movie = {
         id: null,
         title: null,
+        rating: null,
         synopsis: null,
         runtime: null,
         release_date: null,
@@ -19,6 +20,7 @@ var Movie = function(data) {
     //Populate with actual data
     movie.id = data.id;
     movie.title = data.title;
+    movie.rating = data.vote_average;
     movie.synopsis = data.overview;
     movie.runtime = data.runtime;
     movie.background = "http://image.tmdb.org/t/p/w780" + data.backdrop_path;
