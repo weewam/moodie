@@ -4,21 +4,30 @@ moodieApp.controller('Start1Ctrl', function ($scope, Discover) {
     var currentYear = new Date().getFullYear();
 
     $scope.yearSlider = {
-        min: currentYear - 15,
-        max: currentYear,
+        min: Discover.minYear,
+        max: Discover.maxYear,
         options: {
             floor: 1970,
-            ceil: currentYear
+            ceil: currentYear,
+			onChange: function(id, minValue, maxValue) {
+				Discover.minYear = minValue;
+				Discover.maxYear = maxValue;
+	   	 	}
+			
         }
     };
 
     $scope.ratingSlider = {
-        min: 5,
-        max: 10,
+        min: Discover.minRat,
+        max: Discover.maxRat,
         options: {
             floor: 0,
-            ceil: 10
-        }
+            ceil: 10,
+	    	onChange: function(id, lowValue, highValue) {
+				Discover.minRat = lowValue;
+				Discover.maxRat = highValue;
+	    	}
+        },
     };
                      
              
@@ -26,19 +35,24 @@ moodieApp.controller('Start1Ctrl', function ($scope, Discover) {
 		return Discover.getGenres();
 			
 	}    
-	console.log($scope.genres()) 
+
    
 	$scope.addGenre = function(genre){
 		Discover.addGenre(genre)
 	}
 
-	$scope.setRating = function($scope.ratingSlider.min,$scope.ratingSlider.max){
-		Discover.setRating($scope.ratingSlider.min,$scope.ratingSlider.max);
-	}
+		$scope.search = function() {
+	
+		$scope.status = "Searching...";
+   			Discover.MovieSearch.get({with_genres:Discover.setChosen(), 'vote_average.gte':Discover.minRat, 'vote_average.lte':Discover.maxRat, 'release_date.gte':(this.minYear + '-01-01'), 'release_date.lte':(this.maxYear + '-12-31')}, function(data){
 
-	$scope.setRelYear = function($scope.yearSlider.min,$scope.yearSlider.max) {
-		Discover.setRelYear($scope.yearSlider.min,$scope.yearSlider.max) 
-	}
+     				$scope.movies=data.results;
+					console.log(data.results);
+     				$scope.status = "Showing " + data.results.length + " results";
+   					},function(data){
+     				$scope.status = "There was an error";
+   			});
+ 		}
 
 		
 

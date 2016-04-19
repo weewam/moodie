@@ -11,10 +11,15 @@ moodieApp.factory('Discover', function ($resource) {
   // a bit to take the advantage of Angular resource service
   // check lab 5 instructions for details
 //DinnerModel Object constructor
+	var currentYear = new Date().getFullYear();
+
+	this.minYear = currentYear - 15;
+	this.maxYear = currentYear;
  
-	this.maxRat = 0;
-	this.minRat = 0;
-	this.APIkey= 'b0a5b20c668da9800946e85508c3c44f';	
+	this.minRat = 5;
+	this.maxRat = 10;
+
+	
 
 	this.genres = [
 		{
@@ -110,35 +115,42 @@ moodieApp.factory('Discover', function ($resource) {
                     ];
 
 	this.addGenre = function(genre){
-		if(genre.state == 0){
+		if(genre.state === 0){
 			genre.state = 1;
 		}
-		else if(genre.state == 1){
+		else if(genre.state === 1){
 			genre.state = 0;
 		}
-		console.log(genre.name, genre.state);
+		
 	}
 	
                                       
 	this.getGenres = function(){
 		return this.genres;
 	}
-	
-	this.setRating = function(Min,Max){
-		console.log(this.maxRat = Max);
-		console.log(this.minRat = Min);
-	}
 		
+	this.fullminDate = this.minYear + '-01-01';	
+	this.fullmaxDate = this.maxYear + '-12-31';
 
-	this.MovieSearch = function(){
-		var chosen = '';
-		for(genre in this.genres){
-			if(genre.state == 1){
-				chosen = chosen + ',' + genre.id;
+
+	this.setChosen = function(){
+		var chosenGenres = '';
+
+		for(i in this.genres){
+			if(this.genres[i].state === 1){
+				if(chosenGenres === ''){
+					chosenGenres = this.genres[i].id;
+				}
+				else {
+				chosenGenres = chosenGenres + ',' + this.genres[i].id;
+				}
 			}
 		}
-		$resource('http://api.themoviedb.org/3/discover',{with_genres:chosen, vote_average.gte:this.maxRat,vote_average.lte:this.minRat, api_key:this.APIkey});
+	return chosenGenres;
 	}
+
+
+	this.MovieSearch = $resource('http://api.themoviedb.org/3/discover/movie?api_key=b0a5b20c668da9800946e85508c3c44f');
 
 return this;
 });
