@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-var moodieApp = angular.module('moodie', ['ngRoute','satellizer','ngResource']);
+var moodieApp = angular.module('moodie', ['ngRoute','satellizer']);
 
 moodieApp.config(function($routeProvider, $httpProvider, $authProvider) {
 	$routeProvider.
