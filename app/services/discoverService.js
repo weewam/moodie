@@ -19,6 +19,8 @@ moodieApp.factory('Discover', function ($resource) {
 	this.minRat = 5;
 	this.maxRat = 10;
 
+	this.currentSearch = [];
+
 	
 
 	this.genres = [
@@ -125,8 +127,18 @@ moodieApp.factory('Discover', function ($resource) {
 	}
 	
                                       
-	this.getGenres = function(){
-		return this.genres;
+	this.getGenres = function(movie){
+		var genreList = [];
+		if (this.currentSearch.length){
+		for(id in movie.genre_ids){
+			for(u in this.genres){
+				if(movie.genre_ids[id] === this.genres[u].id){
+					genreList.push(this.genres[u].name);
+				}
+			}
+		}
+		}	
+		return genreList;
 	}
 		
 

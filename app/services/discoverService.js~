@@ -19,6 +19,8 @@ moodieApp.factory('Discover', function ($resource) {
 	this.minRat = 5;
 	this.maxRat = 10;
 
+	this.currentSearch = [];
+
 	
 
 	this.genres = [
@@ -125,13 +127,20 @@ moodieApp.factory('Discover', function ($resource) {
 	}
 	
                                       
-	this.getGenres = function(){
-		return this.genres;
+	this.getGenres = function(movie){
+		var genreList = [];
+		if (this.currentSearch.length){
+		for(id in movie.genre_ids){
+			for(u in this.genres){
+				if(movie.genre_ids[id] === this.genres[u].id){
+					genreList.push(this.genres[u].name);
+				}
+			}
+		}
+		}	
+		return genreList;
 	}
 		
-	this.fullminDate = this.minYear + '-01-01';	
-	this.fullmaxDate = this.maxYear + '-12-31';
-
 
 	this.setChosen = function(){
 		var chosenGenres = '';
@@ -150,7 +159,7 @@ moodieApp.factory('Discover', function ($resource) {
 	}
 
 
-	this.MovieSearch = $resource('http://api.themoviedb.org/3/discover/movie?api_key=b0a5b20c668da9800946e85508c3c44f');
+	this.MovieSearch = $resource('http://api.themoviedb.org/3/discover/movie?api_key=b0a5b20c668da9800946e85508c3c44f&append_to_response=trailers');
 
 return this;
 });

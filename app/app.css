@@ -132,6 +132,7 @@ h4 {
   letter-spacing: 1px;
   text-transform: uppercase;
   font-family: "montserratregular";
+	text-align:center;
 }
 
 #specific-movie section.synopsis p{
@@ -225,6 +226,7 @@ ul.genre-list{
   margin: 0;
   padding: 0;
   list-style: none;
+	text-align:center;
 }
 
 ul.genre-list li{
@@ -549,6 +551,66 @@ section.trivia h4 {
 #specific-movie section.credits ul {
   margin-bottom: 20px;
 }
+
+
+/*
+ * Specific actor
+ */
+#specific-actor {
+	color: #676B73;
+	background: #FFF;
+	}
+
+#specific-actor .content {
+	padding:20px;
+}
+
+#specific-actor p.bio {
+	max-height:150px;
+	overflow: hidden;
+}
+
+#specific-actor .movie {
+display: inline-block;
+}
+
+#specific-actor img.filmo {
+	height:40%;
+	width:40%;
+}
+
+#specific-actor p.movieName {
+	font-size:10px;
+	font-weight:bold;
+	color: black;
+}
+#specific-actor p.movieYear {
+	font-size:10px;
+	color: black;
+}
+#specific-actor a.filmlist {
+	max-height:10%;
+	max-width:10%;
+	position: relative;
+}
+
+#specific-actor .star-circle{
+	align: center;
+  position: relative;
+  margin: 0 auto;
+
+  width: 90px;
+  height: 90px;
+  border-radius: 45px;
+	background-size:cover!important;
+	background-position: center center!important;
+
+
+  -webkit-box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
 
 /* ==========================================================================
    @font-face

@@ -32,7 +32,7 @@ moodieApp.controller('Start1Ctrl', function ($scope, Discover) {
                      
              
 	$scope.genres = function(){
-		return Discover.getGenres();
+		return Discover.genres;
 			
 	}    
 
@@ -44,10 +44,12 @@ moodieApp.controller('Start1Ctrl', function ($scope, Discover) {
 		$scope.search = function() {
 	
 		$scope.status = "Searching...";
-   			Discover.MovieSearch.get({with_genres:Discover.setChosen(), 'vote_average.gte':Discover.minRat, 'vote_average.lte':Discover.maxRat, 'release_date.gte':(this.minYear + '-01-01'), 'release_date.lte':(this.maxYear + '-12-31')}, function(data){
+   			Discover.MovieSearch.get({with_genres:Discover.setChosen(), 'vote_average.gte':Discover.minRat, 'vote_average.lte':Discover.maxRat, 'release_date.gte':(Discover.minYear + '-01-01'), 'release_date.lte':(Discover.maxYear + '-12-31')}, function(data){
 
      				$scope.movies=data.results;
-					console.log(data.results);
+
+				Discover.currentSearch = data.results;
+				console.log("Filmer", Discover.currentSearch)
      				$scope.status = "Showing " + data.results.length + " results";
    					},function(data){
      				$scope.status = "There was an error";
