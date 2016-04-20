@@ -9,10 +9,6 @@ moodieApp.config(function($routeProvider, $httpProvider, $authProvider) {
 			templateUrl: 'views/start1.html',
 			controller: 'Start1Ctrl'
 		}).
-		when('/additional-settings', {
-			templateUrl: 'views/additional-settings.html',
-			controller: 'AdditionalSettingsCtrl'
-		}).
 		when('/signin', {
 			templateUrl: 'views/view1.html',
 			controller: 'SigninCtrl'
@@ -23,6 +19,10 @@ moodieApp.config(function($routeProvider, $httpProvider, $authProvider) {
 		}).
 		when('/movie/:MovieID', {
 			templateUrl: 'views/movie.html',
+			controller: 'MovieCtrl'
+		}).
+		when('/movie/:MovieID/full-cast', {
+			templateUrl: 'views/movie-actors.html',
 			controller: 'MovieCtrl'
 		}).
 		when('/person/:PersonID', {
@@ -52,9 +52,46 @@ moodieApp.config(function($routeProvider, $httpProvider, $authProvider) {
 	$httpProvider.defaults.useXDomain = true;
 	delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
+	$authProvider.httpInterceptor = false;
 	$authProvider.facebook({
 		clientId: '1711083572465398',
 		url: 'http://52.16.209.9/auth/facebook',
 		responseType: 'token'
 	});
 });
+
+moodieApp.directive('whenScrolled', function($window, $timeout) {
+    return function(scope, elm, attr) {
+        var raw = elm[0],
+        	throttle = false;
+
+        //Credits to David Walsh
+        function debounce(func, wait, immediate) {
+			var timeout;
+			return function() {
+				var context = this, args = arguments;
+				var later = function() {
+					timeout = null;
+					if (!immediate) func.apply(context, args);
+				};
+				var callNow = immediate && !timeout;
+				clearTimeout(timeout);
+				timeout = setTimeout(later, wait);
+				if (callNow) func.apply(context, args);
+			};
+		};
+
+        angular.element($window).bind('scroll', debounce(function() {
+			scope.$apply(attr.whenScrolled);
+		}, 10));
+
+        angular.element($window).bind('resize', debounce(function() {
+			scope.$apply(attr.whenScrolled);
+		}, 20));
+
+        scope.$on('$destroy', function() {
+            angular.element($window).off('scroll');
+        });
+    };
+});
+
