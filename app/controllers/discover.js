@@ -1,6 +1,6 @@
 'use strict';
 
-moodieApp.controller('DiscoverCtrl', function ($scope, Discover) {
+moodieApp.controller('DiscoverCtrl', function ($scope, Discover, AuthService) {
 
 	$scope.year = function(movie){
 		return movie.release_date.substring(0,4);	
@@ -16,6 +16,12 @@ moodieApp.controller('DiscoverCtrl', function ($scope, Discover) {
 	$scope.getGenres = function(movie){
 
 		return Discover.getGenres(movie);
+
+	}
+	
+	$scope.addToWatchlist = function(id,name,year,poster){
+
+		AuthService.addMovieToWatchlist(id,name,year,poster);
 
 	}
 

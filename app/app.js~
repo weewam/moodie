@@ -39,7 +39,7 @@ moodieApp.config(function($routeProvider, $httpProvider, $authProvider) {
 		}).
 		when('/discover', {
 			templateUrl: 'views/discover.html',
-			controller: 'Start2Ctrl'
+			controller: 'DiscoverCtrl'
 		}).
 			otherwise({
 			redirectTo: '/'
