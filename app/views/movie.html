@@ -1,54 +1,60 @@
-<div id="specific-movie" class="page-container">
+<div id="specific-movie" class="page-container" when-scrolled="myScrollEvent()">
 	<div class="page">
-		<header class="backdrop" style="background:url({{ getBackground() }})">
+		<header id="backdrop" style="background: url({{ getBackgroundUrl(movie.background) }})" ng-class="{'show':largeHeader}">
 			<div class="content">
 				<figure class="rating-circle">
 					<div class="inner">
-						<span>{{ getRating() }}</span>
+						<span>{{ movie.rating }}</span>
 						<h4>rating</h4>
 					</div>
 				</figure>
 
-				<h1 class="movie-title">{{ getTitle() }} <span class="year">{{ getYear() }}</span></h1>
+				<h1 id="movie-title">{{ movie.title }} <span class="year">{{ getYear() }}</span></h1>
 				<ul class="genre-list">
-					<li ng-repeat="genre in getGenres() | limitTo: 4">{{ genre }}</li>
+					<li ng-repeat="genre in movie.genres | limitTo: 4">{{ genre }}</li>
 				</ul>
 			</div>
 
 			<a class="rounded button">Watch trailer</a>
 		</header>
 
+		<header id="fixed-header"  ng-class="{'show':!largeHeader}" style="background: url({{ getBackgroundUrl(movie.background) }})">
+			<h1 class="page-title">{{ movie.title }}</h1>
+		</header>
+
 		<section class="trivia clearfix">
 			<div>
-				<span>{{ getRuntime() || "N/A" }}</span>
+				<span>{{ getRuntimeFormatted(movie.runtime) || "N/A" }}</span>
 				<h4>Runtime</h4>
 			</div>
 
 			<div>
-				<span>{{ getReleaseDate() || "N/A" }}</span>
+				<span>{{ movie.release_date || "N/A" }}</span>
 				<h4>Release date</h4>
 			</div>			
 		</section>
 
 		<div class="content">
 			<section class="synopsis clearfix">
-				<header>
+				<header class="clearfix">
 					<h3 class="with-border">Synopsis</h3>
 				</header>
 
-				<p>{{ getSynopsis() }}</p>
+				<p>{{ movie.synopsis }}</p>
 			</section>
 
-			<section ng-show="getCast().length" class="cast clearfix">
-				<header>
+			<section ng-show="movie.cast.length" class="cast clearfix">
+				<header class="clearfix">
 					<h3 class="with-border">Cast</h3>
+
+					<a class="read-more" ng-href="#/movie/{{ movie.id }}/full-cast"><h3>See full cast</h3></a>
 				</header>
 
 				<ul class="person-list">
-					<li ng-repeat="actor in getCast() | limitTo: 3">
+					<li ng-repeat="actor in movie.cast | limitTo: 3">
 						<a class="clearfix" ng-href="#/person/{{ actor.id }}">
 							<figure>
-								<img src="{{ actor.avatar }}">
+								<img ng-show="actor.avatar" src="{{ getPersonPictureUrl(actor.avatar) }}">
 							</figure>
 
 							<p>{{ actor.name }}</p>
@@ -58,13 +64,15 @@
 				</ul>
 			</section>
 
-			<section ng-show="getCrew().length" class="credits clearfix">
-				<header>
+			<section ng-show="movie.crew.length" class="credits clearfix">
+				<header class="clearfix">
 					<h3 class="with-border">Cast</h3>
+
+					<a class="read-more" ng-href="#/movie/{{ movie.id }}/full-crew"><h3>See full cast</h3></a>
 				</header>
 
 				<ul class="person-list">
-					<li ng-repeat="person in getCrew() | limitTo: 3">
+					<li ng-repeat="person in movie.crew | limitTo: 3">
 						<a class="clearfix" href="#/person/{{ person.id }}">
 							<p>{{ person.name }}</p>
 							<span>{{ person.job }}</span>
