@@ -1,0 +1,56 @@
+<div id="specific-actor" class="page-container">
+	<div class="page">
+		<header class="backdrop" style="background-color:gray;">
+			<div class="content">
+				<figure class="star-circle" style="background-image:url('{{person().picture}}')">
+				</figure>
+
+				<h1 class="movie-title">{{ person().name }} </h1>
+				<ul class="genre-list">
+					<li>{{ person().also_known_as }}</li>
+				</ul>
+			</div>
+		</header>
+
+		<section class="trivia clearfix">
+			<div>
+				<span>{{ person().birthday || "N/A" }}</span>
+				<h4>BIRTHDATE</h4>
+			</div>
+
+			<div>
+				<span>{{ person().birth_place }}</span>
+				<h4>BIRTHPLACE</h4>
+			</div>			
+		</section>
+
+		<div class="content">
+			<section class="synopsis clearfix">
+				<header>
+					<h3 class="with-border">Biography</h3>
+				</header>
+
+				<p class="bio" >{{ person().biography }}</p>
+			</section>
+
+			<section ng-show="person().filmography.length">
+				<header>
+					<h3 class="with-border">FILMOGRAPHY</h3>
+				</header>
+
+					<span ng-repeat="film in person().filmography | limitTo: 10" class="movie">
+						<a class="filmlist" ng-href="#/movie/{{ film.id }}">
+							
+							<img  class="filmo" ng-src="{{ film.poster }}">
+							<p class="movieName">{{ film.name }}</p>
+							<p class="movieYear">{{ film.year }}</p>
+							
+
+
+						</a>
+					</span>
+			</section>
+
+		</div>
+	</div>
+</div>

@@ -1,16 +1,24 @@
 'use strict';
 
+moodieApp.controller('DiscoverCtrl', function ($scope, Discover) {
 
-moodieApp.controller('DiscoverCtrl', function($scope, Discover) {
-	$scope.search = function() {
+	$scope.year = function(movie){
+		return movie.release_date.substring(0,4);	
+     }
+     
+	$scope.movies = function(){
+		console.log(Discover.currentSearch);
+		return Discover.currentSearch;
+			
+	}
 	
-	$scope.status = "Searching...";
-   		Discover.MovieSearch.get(function(data){
-     			$scope.movies=data.Results;
-     			$scope.status = "Showing " + data.Results.length + " results";
-   			},function(data){
-     				$scope.status = "There was an error";
-   			});
- 		}
 
-)};
+	$scope.getGenres = function(movie){
+
+		return Discover.getGenres(movie);
+
+	}
+
+
+
+});
