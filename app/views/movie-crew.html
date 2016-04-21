@@ -1,0 +1,14 @@
+<div id="specific-movie" class="page-container">
+	<header id="fixed-header" style="background: url({{ getBackgroundUrl(movie.background) }})" class="show">
+		<h1 class="page-title">Crew</h1>
+	</header>
+
+	<ul class="person-list fixed-header-padding">
+		<li ng-repeat="person in movie.crew">
+			<a class="clearfix" ng-href="#/person/{{ person.id }}">
+				<p>{{ person.name }}</p>
+				<span>{{ person.job }}</span>
+			</a>
+		</li>
+	</ul>
+</div>

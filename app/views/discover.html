@@ -1,23 +1,26 @@
 <div id="discover" class="page-container">
-	<div class="page" ng-repeat="movie in movies()" style="background-image: url('http://image.tmdb.org/t/p/w780{{movie.poster_path}}')">
-		<h1 class="page-title">Discover</h1>
-		<br/>
-		<figure class="rating-circle">
-			<div class="inner">
-				<span>{{movie.vote_average}}</span>
-				<h4>rating</h4>
-			</div>
-		</figure>
-		<br/>
-		<h1 class="movie-title">{{ movie.title }} <span class="year">{{ year(movie) }}</span></h1>
-		<ul class="genre-list">
-			<li ng-repeat="genre in getGenres(movie) | limitTo: 4">{{ genre }}</li>
+	<div class="page" >
+		<ul class="movies">
+			<li class="movie clearfix" ng-repeat="movie in movies()" style="background-image: url('http://image.tmdb.org/t/p/w780{{movie.poster_path}}')">		
+				<h1 class="page-title">Discover</h1>
+
+				<div class="centered-content">
+					<figure class="rating-circle">
+						<div class="inner">
+							<span>{{movie.vote_average}}</span>
+							<h4>rating</h4>
+						</div>
+					</figure>
+
+					<h1 id="movie-title">{{ movie.title }} <span class="year">{{ year(movie) }}</span></h1>
+					<ul class="genre-list">
+						<li ng-repeat="genre in getGenres(movie) | limitTo: 4">{{ genre }}</li>
+					</ul>
+					<a class="rounded button">Add movie to watchlist</a>
+				</div>
+
+				<a class="read-more" ng-href="#/movie/{{movie.id}}"><h4>Click here to read more</h4></a>
+			</li>
 		</ul>
-
-		<br/>
-		<a class="rounded button">Add movie to watchlist</a>
-		<h4>Click here to read more</h4>
-
-		
 	</div>
 </div>

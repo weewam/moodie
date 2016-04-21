@@ -1,10 +1,16 @@
 /* 
-  Authenticaion Service
-  handles sign in and sign up
+  Authenticaion Service,
+  should probably been named userService
+  Handles all user related calls.
 */
-moodieApp.factory('AuthService', function($http) {
-    var user_id = null,
-        user = null;
+moodieApp.factory('AuthService', function($http, $auth) {
+    var user_id = 1,
+        user = {
+            id: 1,
+            name: "Ibrahim Asfadai",
+            email: "ibrahim.asfadai@gmail.com",
+            avatar: "https://graph.facebook.com/v2.5/10156705467595290/picture?width=1920"
+        };
 
     var handleSuccess = function(response) {
         user_id = response.data.id;

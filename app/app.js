@@ -22,7 +22,11 @@ moodieApp.config(function($routeProvider, $httpProvider, $authProvider) {
 			controller: 'MovieCtrl'
 		}).
 		when('/movie/:MovieID/full-cast', {
-			templateUrl: 'views/movie-actors.html',
+			templateUrl: 'views/movie-cast.html',
+			controller: 'MovieCtrl'
+		}).
+		when('/movie/:MovieID/full-crew', {
+			templateUrl: 'views/movie-crew.html',
 			controller: 'MovieCtrl'
 		}).
 		when('/person/:PersonID', {

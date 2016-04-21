@@ -32,6 +32,7 @@ moodieApp.controller('MovieCtrl', function($scope, $window, $routeParams, movieS
 
     movieService.loadMovie.get({ id : $routeParams.MovieID }, function(data) {
         movieService.setMovie(data);
+        $window.scrollTo(0,0)
     }, function(data) {
         $scope.status = 'not-found';
     });
