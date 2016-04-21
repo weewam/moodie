@@ -1,6 +1,6 @@
 <div id="specific-actor" class="page-container">
 	<div class="page">
-		<header class="backdrop" style="background-color:gray;">
+		<header class="backdrop" style="background:url('{{person().picture}}')">
 			<div class="content">
 				<figure class="star-circle" style="background-image:url('{{person().picture}}')">
 				</figure>
@@ -38,7 +38,7 @@
 					<h3 class="with-border">FILMOGRAPHY</h3>
 				</header>
 
-					<span ng-repeat="film in person().filmography | limitTo: 10" class="movie">
+					<span ng-repeat="film in person().filmography" class="movie">
 						<a class="filmlist" ng-href="#/movie/{{ film.id }}">
 							
 							<img  class="filmo" ng-src="{{ film.poster }}">

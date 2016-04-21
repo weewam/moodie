@@ -45,5 +45,8 @@ moodieApp.factory('AuthService', function($http, $auth) {
         return user;
     }
 
+	this.watchlist = [];
+
+
     return this;
 });

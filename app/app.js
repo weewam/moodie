@@ -45,6 +45,10 @@ moodieApp.config(function($routeProvider, $httpProvider, $authProvider) {
 			templateUrl: 'views/discover.html',
 			controller: 'DiscoverCtrl'
 		}).
+		when('/watchlist', {
+			templateUrl: 'views/watchlist.html',
+			controller: 'watchlistCtrl'
+		}).
 			otherwise({
 			redirectTo: '/'
 		});

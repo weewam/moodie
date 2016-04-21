@@ -11,12 +11,12 @@
 							<h4>rating</h4>
 						</div>
 					</figure>
-
+					
 					<h1 id="movie-title">{{ movie.title }} <span class="year">{{ year(movie) }}</span></h1>
 					<ul class="genre-list">
 						<li ng-repeat="genre in getGenres(movie) | limitTo: 4">{{ genre }}</li>
 					</ul>
-					<a class="rounded button">Add movie to watchlist</a>
+					<a ng-click="addToWatchlist(movie.id,movie.title,year(movie),'http://image.tmdb.org/t/p/w780' + movie.poster_path)" class="rounded button">Add movie to watchlist</a>
 				</div>
 
 				<a class="read-more" ng-href="#/movie/{{movie.id}}"><h4>Click here to read more</h4></a>
