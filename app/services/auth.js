@@ -3,7 +3,8 @@
   should probably been named userService
   Handles all user related calls.
 */
-moodieApp.factory('AuthService', function($http, $auth) {
+moodieApp.factory('AuthService', function($http, $auth, $resource) {
+    /* Auth */
     var user_id = 1,
         user = {
             id: 1,
@@ -24,7 +25,7 @@ moodieApp.factory('AuthService', function($http, $auth) {
 
     this.facebookSignIn = function() {
         $auth.authenticate('facebook').then(function(){
-            $http.post('http://52.16.209.9/auth/facebook').then(handleSuccess, handleError);
+            $http.post('http://52.16.209.9/auth/facebook', { token : localStorage.getItem('satellizer_token') }).then(handleSuccess, handleError);
         }); 
     }
 
@@ -45,7 +46,14 @@ moodieApp.factory('AuthService', function($http, $auth) {
         return user;
     }
 
-	this.watchlist = [];
+    this.setUser = function(data) {
+        user = data;
+    }
+
+    /* Watchlist stuff */
+    this.watchList = $resource('http://52.16.209.9/user/:user_id/watchlist/:movie_id', { 'user_id' : user_id }, {
+                        add : { method : 'POST', params : { 'movie_id' : 2 }, url : 'http://52.16.209.9/user/:user_id/watchlist/:movie_id' }
+                    });
 
 
     return this;
