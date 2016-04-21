@@ -5,7 +5,7 @@
 				<figure class="star-circle" style="background-image:url('{{user.avatar}}')">
 				</figure>
 
-				<h1 class="movie-title">Hello {{ user.name }}</h1>
+				<h1 class="movie-title">Hello <br/>{{ user.name }}</h1>
 				
 			</div>
 		</header>
@@ -26,9 +26,10 @@
 								<img src="{{ movie.poster }}">
 							</figure>
 
-							<p>{{ movie.name }}</p>
-							<span>{{ movie.year }}</span>
-							<a class="rounded button" ng-click="removeFromWatchlist()"/>
+							<p class="year">{{ movie.name }}<br/><span class="year">{{ movie.year }}</span></p>
+							
+							
+							<a class="rounded button" ng-click="removeFromWatchlist(movie.id)">Remove</a>
 							
 						</div>
 						
