@@ -1,6 +1,6 @@
 <div id="specific-movie" class="page-container" when-scrolled="myScrollEvent()">
 	<div class="page">
-		<header id="backdrop" style="background: url({{ getBackgroundUrl(movie.background) }})" ng-class="{'show':largeHeader}">
+		<header id="backdrop" style="background: url({{ getBackgroundUrl() }})" ng-class="{'show':largeHeader}">
 			<div class="content">
 				<figure class="rating-circle">
 					<div class="inner">
@@ -18,13 +18,13 @@
 			<a class="rounded button">Watch trailer</a>
 		</header>
 
-		<header id="fixed-header"  ng-class="{'show':!largeHeader}" style="background: url({{ getBackgroundUrl(movie.background) }})">
+		<header id="fixed-header"  ng-class="{'show':!largeHeader}" style="background: url({{ getBackgroundUrl() }})">
 			<h1 class="page-title">{{ movie.title }}</h1>
 		</header>
 
 		<section class="trivia clearfix">
 			<div>
-				<span>{{ getRuntimeFormatted(movie.runtime) || "N/A" }}</span>
+				<span>{{ getRuntimeFormatted() || "N/A" }}</span>
 				<h4>Runtime</h4>
 			</div>
 
@@ -54,7 +54,7 @@
 					<li ng-repeat="actor in movie.cast | limitTo: 3">
 						<a class="clearfix" ng-href="#/person/{{ actor.id }}">
 							<figure>
-								<img ng-show="actor.avatar" src="{{ getPersonPictureUrl(actor.avatar) }}">
+								<img ng-show="actor.avatar" src="{{ getAvatarUrl(actor.avatar) }}">
 							</figure>
 
 							<p>{{ actor.name }}</p>

@@ -1,25 +1,22 @@
 <div id="specific-actor" class="page-container">
 	<div class="page">
-		<header class="backdrop" style="background:url('{{person().picture}}')">
+		<header class="backdrop" style="background:url('{{ getAvatarUrl() }}')">
 			<div class="content">
-				<figure class="star-circle" style="background-image:url('{{person().picture}}')">
+				<figure ng-show="person.picture" class="star-circle" style="background-image:url('{{ getBackgroundUrl() }}')">
 				</figure>
 
-				<h1 class="movie-title">{{ person().name }} </h1>
-				<ul class="genre-list">
-					<li>{{ person().also_known_as }}</li>
-				</ul>
+				<h1 class="movie-title">{{ person.name }} </h1>
 			</div>
 		</header>
 
 		<section class="trivia clearfix">
 			<div>
-				<span>{{ person().birthday || "N/A" }}</span>
+				<span>{{ person.birthday || "N/A" }}</span>
 				<h4>BIRTHDATE</h4>
 			</div>
 
 			<div>
-				<span>{{ person().birth_place }}</span>
+				<span>{{ getBirthTown() || "N/A" }}</span>
 				<h4>BIRTHPLACE</h4>
 			</div>			
 		</section>
@@ -30,27 +27,31 @@
 					<h3 class="with-border">Biography</h3>
 				</header>
 
-				<p class="bio" >{{ person().biography }}</p>
+				<p class="bio" >{{ person.biography }}</p>
 			</section>
 
-			<section ng-show="person().filmography.length">
+			<section ng-show="person.filmography.length">
 				<header>
 					<h3 class="with-border">FILMOGRAPHY</h3>
 				</header>
 
-					<span ng-repeat="film in person().filmography" class="movie">
-						<a class="filmlist" ng-href="#/movie/{{ film.id }}">
-							
-							<img  class="filmo" ng-src="{{ film.poster }}">
-							<p class="movieName">{{ film.name }}</p>
-							<p class="movieYear">{{ film.year }}</p>
-							
+				<ul ng-repeat="row in person.filmography" class="movie-list clearfix">
+					<ul class="row clearfix">
+						<li ng-repeat="film in row" class="movie">	
+							<a class="filmlist" ng-href="#/movie/{{ film.id }}">
+								<figure class="poster">
+									<img ng-show="film.poster" class="filmo" ng-src="{{ getPosterUrl(film.poster) }}">
+								</figure>
 
-
-						</a>
-					</span>
+								<div class="info">
+									<p class="movieName">{{ film.name }}</p>
+									<span class="movieYear">{{ getYear(film.date) }}</span>	
+								</div>
+							</a>
+						</li>
+					</ul>
+				</ul>
 			</section>
-
 		</div>
 	</div>
 </div>

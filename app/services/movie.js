@@ -75,6 +75,6 @@ moodieApp.factory('movieService', function($resource) {
         return movie;
     }
 
-    this.loadMovie = $resource('http://api.themoviedb.org/3/movie/:id', { api_key : 'b0a5b20c668da9800946e85508c3c44f', append_to_response : 'credits,trailers'}, {skipAuthorization: true});
+    this.loadMovie = $resource('http://api.themoviedb.org/3/movie/:id', { api_key : 'b0a5b20c668da9800946e85508c3c44f', append_to_response : 'credits,trailers'});
     return this;
 });

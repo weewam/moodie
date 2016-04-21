@@ -32,7 +32,6 @@ moodieApp.controller('DiscoverCtrl', function ($scope, Discover, AuthService) {
 	}
 	
 	$scope.addToWatchlist = function(id, name, year, poster){
-		console.log(name);
        AuthService.watchList.save({ 'movie_id' : id }, { 'name' : name, 'year' : year, 'poster' : poster });
 	}
 });
