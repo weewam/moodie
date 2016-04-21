@@ -780,6 +780,22 @@ margin-bottom:10px;
   margin: 25px 0 2px;
 }
 
+#specific-actor .rounded.button {
+  position: absolute;
+  z-index: 1;
+  left:70%;
+  
+  transform: translateX(-50%);
+
+  line-height: 44px;
+  height: 20px;
+	width:60px;
+
+  font-size: 12px;
+
+  background: #20C063;
+}
+
 /* ==========================================================================
    @font-face
    ========================================================================== */

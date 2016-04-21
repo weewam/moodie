@@ -6,6 +6,12 @@ moodieApp.controller('watchlistCtrl', function ($scope, AuthService) {
 		
 	//$scope.user = AuthService.user;
 
+$scope.removeFromWatchlist = function() 
+        {
+		AuthService.
+        };
+ 
+
 	$scope.user = {
 		name: 'Lina',
 		avatar: 'http://x.cdn-expressen.se/images/af/dd/afdd4906a0943db75b32a90cb67da4b7/original.jpg'
@@ -17,19 +23,23 @@ moodieApp.controller('watchlistCtrl', function ($scope, AuthService) {
 		id: 76203,
 		poster: "http://image.tmdb.org/t/p/w185/kb3X943WMIJYVg4SOAyK0pmWL5D.jpg",
 		year: 2013
+
 		},
 		{
 		name: '12 Years of Slave',
 		id: 76203,
 		poster: "http://image.tmdb.org/t/p/w185/kb3X943WMIJYVg4SOAyK0pmWL5D.jpg",
 		year: 2013
+
 		},
 		{
 		name: '12 Years of Slave',
 		id: 76203,
 		poster: "http://image.tmdb.org/t/p/w185/kb3X943WMIJYVg4SOAyK0pmWL5D.jpg",
 		year: 2013
+
 		}];
+
 
 
 });
