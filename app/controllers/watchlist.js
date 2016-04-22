@@ -10,12 +10,10 @@ moodieApp.controller('watchlistCtrl', function ($scope, AuthService) {
 	$scope.getWatchlist = function(){
 		AuthService.watchList.query({}, function(data){
 			$scope.watchlist = data;
-			console.log(data)
 		});
 	}
 
 	$scope.toggleEditMode = function(){
-		console.log($scope.editMode);
 		$scope.editMode = !($scope.editMode);
 	}
 

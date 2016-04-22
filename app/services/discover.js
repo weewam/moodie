@@ -159,7 +159,7 @@ moodieApp.factory('discoverService', function ($resource) {
 	}
 
 
-	this.MovieSearch = $resource('http://api.themoviedb.org/3/discover/movie?api_key=b0a5b20c668da9800946e85508c3c44f');
+	this.MovieSearch = $resource('http://api.themoviedb.org/3/discover/movie', { 'sort_by' : 'vote_average.desc', 'api_key' : 'b0a5b20c668da9800946e85508c3c44f', 'vote_count.gte' : '100', 'language' : 'en'  });
 
 return this;
 });
