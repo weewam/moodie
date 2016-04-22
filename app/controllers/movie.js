@@ -19,6 +19,10 @@ moodieApp.controller('MovieCtrl', function($scope, $window, $routeParams, movieS
       return "http://image.tmdb.org/t/p/w780" + $scope.movie.background; 
     };
 
+    $scope.getTrailerUrl = function() {
+      return ($scope.movie.trailer) ? "https://www.youtube.com/embed/" + $scope.movie.trailer.source : null; 
+    };
+
     $scope.getAvatarUrl = function(actor_id) {
       return "http://image.tmdb.org/t/p/w185" + actor_id;
     };

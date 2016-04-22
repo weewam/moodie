@@ -1,4 +1,4 @@
-<div id="specific-actor" class="page-container">
+<div id="watchlist" class="page-container">
 	<div class="page">
 		<header id="backdrop" style="background-image:url('{{user.avatar}}')">
 			<div class="centered-content">
@@ -11,29 +11,25 @@
 
 		<div class="content">
 			<section ng-show="watchlist.length" class="cast clearfix">
-				<header>
+				<header class="clearfix">
 					<h3 class="with-border">Watchlist</h3>
+					<a class="edit" ng-click="toggleEditMode()">{{ editMode ? "Done" : "Edit" }}</a>
 				</header>
 
-				<ul class="person-list">
-					<li ng-repeat="movie in watchlist">
-						
-						<div class="clearfix">
-							
-							<figure>
-								<img src="{{ movie.poster }}">
-							</figure>
+				<ul class="movie-list">
+					<li class="movie" ng-repeat="movie in watchlist" ng-class="{ 'edit-mode' : editMode }">
+						<figure>
+							<img src="{{ movie.poster }}">
+						</figure>
 
-							<p class="year">{{ movie.name }}<br/><span class="year">{{ movie.year }}</span></p>
-							
-							
-							<a class="rounded button" ng-click="removeFromWatchlist(movie.id)">Remove</a>
-							
+						<div class="info">
+							<p>{{ movie.name }}</p>
+							<span>{{ movie.year }}</span>
 						</div>
-						
+							
+						<a class="remove button" ng-click="removeFromWatchlist(movie.id)">DELETE</a>
 					</li>
 				</ul>
-
 			</section>
 		</div>
 	</div>

@@ -3,7 +3,7 @@
 // dependency on any service you need. Angular will insure that the
 // service is created first time it is needed and then just reuse it
 // the next time.
-moodieApp.factory('Discover', function ($resource) {
+moodieApp.factory('discoverService', function ($resource) {
 
   // TODO in Lab 5: Add your model code from previous labs
   // feel free to remove above example code
@@ -159,7 +159,7 @@ moodieApp.factory('Discover', function ($resource) {
 	}
 
 
-	this.MovieSearch = $resource('http://api.themoviedb.org/3/discover/movie?api_key=b0a5b20c668da9800946e85508c3c44f&append_to_response=trailers');
+	this.MovieSearch = $resource('http://api.themoviedb.org/3/discover/movie?api_key=b0a5b20c668da9800946e85508c3c44f');
 
 return this;
 });

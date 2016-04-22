@@ -7,7 +7,7 @@
 		<li ng-repeat="actor in movie.cast">
 			<a class="clearfix" ng-href="#/person/{{ actor.id }}">
 				<figure>
-					<img ng-show="actor.avatar" src="{{ getPersonPictureUrl(actor.avatar) }}">
+					<img ng-show="actor.avatar" src="{{ getAvatarUrl(actor.avatar) }}">
 				</figure>
 
 				<p>{{ actor.name }}</p>

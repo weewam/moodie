@@ -6,15 +6,15 @@ var moodieApp = angular.module('moodie', ['ngRoute','rzModule','satellizer','ngR
 moodieApp.config(function($routeProvider, $httpProvider, $authProvider) {
 	$routeProvider.
 		when('/', {
-			templateUrl: 'views/start1.html',
-			controller: 'Start1Ctrl'
+			templateUrl: 'views/start.html',
+			controller: 'StartCtrl'
 		}).
 		when('/signin', {
-			templateUrl: 'views/view1.html',
+			templateUrl: 'views/signin.html',
 			controller: 'SigninCtrl'
 		}).
 		when('/signup', {
-			templateUrl: 'views/view2.html',
+			templateUrl: 'views/signup.html',
 			controller: 'SignupCtrl'
 		}).
 		when('/movie/:MovieID', {
@@ -33,13 +33,9 @@ moodieApp.config(function($routeProvider, $httpProvider, $authProvider) {
 			templateUrl: 'views/person.html',
 			controller: 'PersonCtrl'
 		}).
-		when('/start1', {
-			templateUrl: 'views/start1.html',
-			controller: 'Start1Ctrl'
-		}).
-		when('/start2', {
-			templateUrl: 'views/start2.html',
-			controller: 'Start2Ctrl'
+		when('/start', {
+			templateUrl: 'views/start.html',
+			controller: 'StartCtrl'
 		}).
 		when('/discover', {
 			templateUrl: 'views/discover.html',

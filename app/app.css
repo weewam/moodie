@@ -349,6 +349,7 @@ header#backdrop{
   height: 0;
   position: relative;
   padding-bottom: 80%;
+  background-color: #26262F;
   color: #fff;
 
   background-size: cover!important;
@@ -714,19 +715,29 @@ header#backdrop h1{
 
 #specific-movie section header{
   padding: 20px 20px 0;
+  position: relative;
 }
 
 #specific-movie section header h3{
   color: #45474D;
 }
 
-#specific-movie section header h3{
-  float: left;
-}
-
 #specific-movie section header a.read-more{
-  padding: 3px 0;
-  float: right;
+  position: absolute;
+  right: 20px;
+  top: 17px;
+
+  cursor: pointer;
+  padding: 5px 15px;
+  border-radius: 30px;
+  border: 1px solid #F5AF32;
+  
+  color: #45474D;
+  font-size: 12px;
+  line-height: 1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'montserratregular';
 }
 
 #specific-movie section ul {
@@ -746,9 +757,6 @@ header#backdrop h1{
 #specific-movie section:last-child {
   padding-bottom: 20px;
 }
-
-
-
 
 
 /*
@@ -849,48 +857,151 @@ header#backdrop h1{
   font-family: 'montserratregular';
 }
 
+/*
+ * Specific actor
+ */
+#watchlist .page{
+  background: #fff;
+  color: #45474D;
+}
 
-#specific-actor a.rounded.button {
+#watchlist .content{
+  padding: 20px;
+}
+
+#watchlist .content header{
+  position: relative;
+}
+
+#watchlist .content .edit{
   position: absolute;
-  z-index: 1;
-  right: 20px;
-  margin-top: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  line-height: 30px;
-  height: 30px;
-  width: 70px;
-  font-size: 10px;
-  background: #20C063;
+  right: 0;
+  top: -3px;
+
+  cursor: pointer;
+  padding: 5px 15px;
+  border-radius: 30px;
+  border: 1px solid #F5AF32;
+  
+  color: #45474D;
+  font-size: 12px;
+  line-height: 1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'montserratregular';
+}
+
+#watchlist .movie-list{
   padding: 0;
+  list-style: none;
+  margin: 0;
 }
 
-#specific-actor span.year {
-    line-height: 1em;
-    margin: 0;
-	float:left;
-}
-#specific-actor p.year {
-    line-height: 2em;
-    margin: 0;
-float:left;
+#watchlist .movie-list .movie{
+  background: #F7F8FA;
+  margin-top: 15px;
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+
+  -webkit-box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1);
 }
 
-#specific-actor ul.person-list figure{
-	width: 60px;
-  height: 80px;
-  border-radius: 0px;
-}
-
-#specific-actor ul.person-list li figure img{
+#watchlist .movie-list .movie:after{
+  content: "";
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  transform: translateY(-50%);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
 }
 
-#specific-actor ul.person-list li {
-    position: relative;
+#watchlist .movie figure{
+  float: left;
+  margin: 0;
+  height: 0;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+
+  right: 0;
+  position: relative;
+
+  -webkit-transition: margin 100ms linear;
+  -moz-transition: margin 100ms linear;
+  -ms-transition: margin 100ms linear;
+  -o-transition: margin 100ms linear;
+  transition: margin 100ms linear;
+}
+
+#watchlist .movie.edit-mode figure {
+  margin-left: -100px;
+}
+
+#watchlist .movie figure img{
+  display: block;
+  width: 100%;
+}
+
+#watchlist .movie .info {
+  float: left;
+  height: 100px;
+  padding: 28px 15px;
+  width: calc(100% - 100px);
+}
+
+#watchlist .movie .info p {
+  margin: 0;
+  display: block;
+
+  font-family: 'montserratregular';
+  font-size: 16px;
+  line-height: 1em;
+  color: #45474D;
+}
+
+#watchlist .movie .info span {
+  display: block;
+  margin: 10px 0 0;
+
+  font-size: 14px;
+  color: #8A8F99;
+  line-height: 1em;
+  font-family: 'montserratregular';
+}
+
+#watchlist .movie .remove.button {
+  position: absolute;
+  z-index: 2;
+  right: -100px;
+  top: 0;
+
+  padding: 0px 15px;
+  height: 100px;
+  background: #e74c3c;
+  text-decoration: none;
+
+  color: #fff;
+  font-size: 12px;
+  line-height: 100px;
+  letter-spacing: 1.3px;
+  font-family: 'montserratultra_light';
+
+  -webkit-transition: right 100ms linear;
+  -moz-transition: right 100ms linear;
+  -ms-transition: right 100ms linear;
+  -o-transition: right 100ms linear;
+  transition: right 100ms linear;
+}
+
+#watchlist .movie-list .edit-mode .remove.button {
+  right: 0px;
 }
 
 /* ==========================================================================

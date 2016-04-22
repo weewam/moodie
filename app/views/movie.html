@@ -15,7 +15,7 @@
 				</ul>
 			</div>
 
-			<a class="rounded button">Watch trailer</a>
+			<a ng-show="movie.trailer" ng-href="{{ getTrailerUrl() }}" target="_blank" class="rounded button">Watch trailer</a>
 		</header>
 
 		<header id="fixed-header"  ng-class="{'show':!largeHeader}" style="background: url({{ getBackgroundUrl() }})">
@@ -47,7 +47,7 @@
 				<header class="clearfix">
 					<h3 class="with-border">Cast</h3>
 
-					<a class="read-more" ng-href="#/movie/{{ movie.id }}/full-cast"><h3>See full cast</h3></a>
+					<a class="read-more" ng-href="#/movie/{{ movie.id }}/full-cast">See full cast</a>
 				</header>
 
 				<ul class="person-list">
@@ -68,7 +68,7 @@
 				<header class="clearfix">
 					<h3 class="with-border">Cast</h3>
 
-					<a class="read-more" ng-href="#/movie/{{ movie.id }}/full-crew"><h3>See full cast</h3></a>
+					<a class="read-more" ng-href="#/movie/{{ movie.id }}/full-crew">See full cast</a>
 				</header>
 
 				<ul class="person-list">

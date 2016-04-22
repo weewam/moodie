@@ -26,13 +26,16 @@ moodieApp.factory('movieService', function($resource) {
         movie.runtime = data.runtime;
         movie.background = data.backdrop_path;
         movie.release_date = data.release_date;
-        movie.trailer = data.trailers.youtube;
-        
+        movie.trailer = (data.trailers && data.trailers.youtube.length) ? data.trailers.youtube[0] : null;
+        console.log(movie.trailer);
+
+        movie.genres = [];
         //Populate genre list with necessary data
         for (var i = 0; i < data.genres.length; i++) {
             movie.genres.push(data.genres[i].name);
         };
 
+        movie.cast = [];
         //Populate cast list with necessary data
         for (var i = 0; i < data.credits.cast.length; i++) {
             var person = {};
@@ -45,6 +48,7 @@ moodieApp.factory('movieService', function($resource) {
             movie.cast.push(person);
         };
 
+        movie.crew = [];
         //Populate cast list with necessary data
         for (var i = 0; i < data.credits.crew.length; i++) {
             var person = {};
