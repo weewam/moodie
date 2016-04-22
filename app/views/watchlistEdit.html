@@ -1,15 +1,17 @@
 <div id="specific-actor" class="page-container">
 	<div class="page">
-		<header id="backdrop" style="background-image:url('{{user.avatar}}')">
-			<div class="centered-content">
-				<figure class="avatar-circle" style="background-image:url('{{user.avatar}}')">
+		<header class="backdrop" style="background-image:url('{{user.avatar}}')">
+			<div class="content">
+				<figure class="star-circle" style="background-image:url('{{user.avatar}}')">
 				</figure>
 
-				<h1 class="movie-title">Hello <br/>{{ user.name }}</h1>	
+				<h1 class="movie-title">Hello {{ user.name }}</h1>
+				
 			</div>
 		</header>
 
 		<div class="content">
+	
 			<section ng-show="watchlist.length" class="cast clearfix">
 				<header>
 					<h3 class="with-border">Watchlist</h3>
@@ -24,10 +26,9 @@
 								<img src="{{ movie.poster }}">
 							</figure>
 
-							<p class="year">{{ movie.name }}<br/><span class="year">{{ movie.year }}</span></p>
-							
-							
-							<a class="rounded button" ng-click="removeFromWatchlist(movie.id)">Remove</a>
+							<p>{{ movie.name }}</p>
+							<span>{{ movie.year }}</span>
+							<a class="rounded button" ng-click="removeFromWatchlist()"/>
 							
 						</div>
 						
@@ -35,6 +36,7 @@
 				</ul>
 
 			</section>
+
 		</div>
 	</div>
 </div>

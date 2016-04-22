@@ -323,6 +323,71 @@ section.trivia h4 {
 }
 
 /*
+ * Rating circle styling
+ */
+.avatar-circle{
+  margin: 0 auto;
+  position: relative;
+
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  background-size:cover!important;
+  background-position: center center!important;
+
+
+  -webkit-box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+/*
+ * Backdrop
+ */
+header#backdrop{
+  margin: 0;
+  height: 0;
+  position: relative;
+  padding-bottom: 80%;
+  color: #fff;
+
+  background-size: cover!important;
+  background-repeat: no-repeat!important;
+  background-position: center center!important;
+}
+
+header#backdrop:after{
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  background: rgba(38, 38, 47, 0.9);
+}
+
+header#backdrop .centered-content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 0 20px;
+}
+
+header#backdrop figure{
+  margin: 0 auto 25px;
+}
+
+header#backdrop h1{
+  margin: 0 0 3px;
+}
+
+/*
  * Start screen styling
  */
 #start-screen .page{
@@ -466,6 +531,7 @@ section.trivia h4 {
 #start-screen .rz-pointer:after {
   display: none;
 }
+
 
 
 
@@ -624,6 +690,7 @@ section.trivia h4 {
   width: 100%;
   transform: translate(-50%, -50%);
   text-align: center;
+  padding: 0 20px;
 }
 
 #specific-movie header#backdrop h1{
@@ -679,6 +746,7 @@ section.trivia h4 {
 #specific-movie section:last-child {
   padding-bottom: 20px;
 }
+
 
 
 
@@ -782,57 +850,47 @@ section.trivia h4 {
 }
 
 
-#specific-actor .star-circle{
-	align: center;
-  position: relative;
-  margin: 0 auto;
-  margin-bottom:10px;
-
-  width: 150px;
-  height: 150px;
-  border-radius: 75px;
-	background-size:cover!important;
-	background-position: center center!important;
-
-
-  -webkit-box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
-  margin: 0 auto 25px;
-}
-
-#specific-actor header.backdrop{
-  margin: 0;
-  height: 0;
-  position: relative;
-  padding-bottom: 80%;
-  color: #fff;
-
-  background-size: cover!important;
-  background-repeat: no-repeat!important;
-  background-position: center center!important;
-}
-
-#specific-actor header.backdrop:after{
-  content: "";
-
+#specific-actor a.rounded.button {
   position: absolute;
-  top: 0;
-  left: 0;
+  z-index: 1;
+  right: 20px;
+  margin-top: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 30px;
+  height: 30px;
+  width: 70px;
+  font-size: 10px;
+  background: #20C063;
+  padding: 0;
+}
 
+#specific-actor span.year {
+    line-height: 1em;
+    margin: 0;
+	float:left;
+}
+#specific-actor p.year {
+    line-height: 2em;
+    margin: 0;
+float:left;
+}
+
+#specific-actor ul.person-list figure{
+	width: 60px;
+  height: 80px;
+  border-radius: 0px;
+}
+
+#specific-actor ul.person-list li figure img{
+  position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(38, 38, 47, 0.96);
+  transform: translateY(-50%);
 }
 
-#specific-actor header.backdrop .content{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 1;
-  width: 100%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+#specific-actor ul.person-list li {
+    position: relative;
 }
 
 /* ==========================================================================
