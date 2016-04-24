@@ -1,6 +1,17 @@
-<div id="specific-movie" class="page-container" when-scrolled="scrollEvent()">
+<div id="specific-movie" ng-controller="ApplicationController" class="page-container" when-scrolled="scrollEvent()">
+	<nav id="app-nav">
+		<a class="back button rounded" ng-href="#/discover">
+			<img src="images/arrow.png">
+		</a>
+
+		<a class="menu button">
+			<img src="images/arrow.png">
+		</a>
+	</nav>
+
 	<div class="page">
 		<header id="backdrop" style="background: {{ getLargePicUrl(movie.background) ? 'url(' + getLargePicUrl(movie.background) + ')' : '' }}" ng-class="{'show':largeHeader}">
+
 			<div class="content">
 				<figure class="rating-circle">
 					<div class="inner">

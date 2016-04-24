@@ -14,5 +14,8 @@
     "satellizer": "^0.14.0",
     "angularjs-slider": "^2.11.0",
     "angular-resource": "~1.4.0"
+  },
+  "resolutions": {
+    "angular": "1.5.5"
   }
 }

@@ -1,4 +1,14 @@
-<div id="specific-movie" class="cast-page page-container">
+<div id="specific-movie" ng-controller="ApplicationController" class="cast-page page-container">
+	<nav id="app-nav">
+		<a class="back button rounded" ng-href="#/movie/{{ movie.id }}">
+			<img src="images/arrow.png">
+		</a>
+
+		<a class="menu button">
+			<img src="images/arrow.png">
+		</a>
+	</nav>
+
 	<header id="fixed-header" style="background: url({{ getLargePicUrl(movie.background) }})" class="show">
 		<h1 class="page-title">Cast</h1>
 	</header>

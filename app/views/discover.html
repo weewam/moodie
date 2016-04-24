@@ -1,8 +1,19 @@
-<div id="discover" class="page-container">
+<div id="discover" ng-controller="ApplicationController" class="page-container">
+	<nav id="app-nav">
+		<a class="back button rounded" ng-href="#/start">
+			<img src="images/arrow.png">
+		</a>
+
+		<a class="menu button">
+			<img src="images/arrow.png">
+		</a>
+	</nav>
+
 	<div class="page" ng-show="movies().length">
+		<h1 class="page-title">Discover</h1>
+
 		<ul class="movies">
 			<li class="movie clearfix" ng-repeat="movie in movies()" style="background: url({{ getLargePicUrl(movie.poster_path) }})">		
-				<h1 class="page-title">Discover</h1>
 
 				<div class="centered-content">
 					<figure class="rating-circle">
@@ -17,12 +28,14 @@
 						<li ng-repeat="genre in getGenres(movie) | limitTo: 4">{{ genre }}</li>
 					</ul>
 					
-					<a ng-click="addToWatchlist(movie.id, movie.title , getYear(movie), getLargePicUrl(movie.poster_path))" class="rounded button">Add movie to watchlist</a>
-				</div>
+					<a ng-click="addToWatchlist(movie.id, movie.title , getYear(movie.release_date), getLargePicUrl(movie.poster_path))" class="rounded button">Add movie to watchlist</a>
 
-				<a class="read-more" ng-href="#/movie/{{movie.id}}"><h4>Click here to read more</h4></a>
+					<a class="read-more rounded button" ng-href="#/movie/{{movie.id}}">Click here to read more</a>
+				</div>
 			</li>
 		</ul>
+
+		<h4 class="scroll-down">Scroll down to see more</h4>
 	</div>
 <ng-include ng-show="!movies().length" src="'views/noresults.html'"></ng-include>
 </div>

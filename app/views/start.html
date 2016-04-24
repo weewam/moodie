@@ -1,11 +1,17 @@
-<div id="start-screen" class="page-container">
-	<div class="page">
-		<h1 class="page-title" ng-model="user">Welcome <br/> {{user.name}}</h1>
+<div id="start-screen" ng-controller="ApplicationController" class="page-container">
+	<nav id="app-nav">
+		<a class="back button rounded" ng-href="#/welcome">
+			<img src="images/arrow.png">
+		</a>
 
-		<section class="intro">
-			<h2>What are you in the mood for?</h2>
-			<span>Select genres, rating and releasing year of the movies you would like to watch</span>
-		</section>
+		<a class="menu button">
+			<img src="images/arrow.png">
+		</a>
+	</nav>
+
+	<div class="page">
+		<h1 class="page-title" ng-model="user">What are you in<br>the mood for?</h1>
+		<span class="info">Select genres, rating and releasing year of the movies you would like to watch</span>
 
 	    <section class="genres">
 	    	<h3>Genres</h3>

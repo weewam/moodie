@@ -3,8 +3,6 @@
 moodieApp.controller('watchlistCtrl', function ($scope, UserService) {
 	$scope.editMode = false;
 
-	$scope.user = UserService.getUser();
-
 	$scope.queryWatchlist = function(){
 		UserService.watchList.query({}, function(data){
 			UserService.setWatchlist(data);

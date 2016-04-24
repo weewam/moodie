@@ -31,6 +31,7 @@ moodieApp.factory('UserService', function($http, $auth, $resource) {
 
     this.signOut = function() {
         user = null;
+        localStorage.removeItem('user');
     }
 
     this.getWatchlist = function() {

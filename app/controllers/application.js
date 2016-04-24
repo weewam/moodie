@@ -2,6 +2,11 @@
 
 moodieApp.controller('ApplicationController', function($scope, $window, $location, UserService) {
     $scope.user = UserService.getUser();
+
+    if(!$scope.user) {
+        $location.path("signin");
+    }
+
     $scope.largeHeader = true;
     
     /*
@@ -20,12 +25,17 @@ moodieApp.controller('ApplicationController', function($scope, $window, $locatio
     };
 
     /*
-     * Helper functions
+     * Event helpers
      */
     $scope.scrollEvent = function() {
         var el = document.getElementById('backdrop');
         $scope.largeHeader = ($window.pageYOffset < (el.offsetHeight - 60));
     }
+
+    $scope.backButton = function() { 
+      console.log("called");
+        $window.history.back();
+    };
 
     /*
      * Watchlist functions

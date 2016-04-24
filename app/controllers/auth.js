@@ -1,14 +1,9 @@
 'use strict';
 
 moodieApp.controller('AuthCtrl', function($scope, $window, $location, $auth, $http, UserService) {
-    //User is logged in
-    if (UserService.getUserId()) {
-        $location.path("/");
-    };
-
     var handleSuccess = function(response) {
         UserService.setUser(response.data);
-        $location.path("/");
+        $window.location.href = "/#/welcome";
     }
     
     $scope.credentials = {
@@ -33,7 +28,12 @@ moodieApp.controller('AuthCtrl', function($scope, $window, $location, $auth, $ht
 
     $scope.signUp = function(credentials) {
         $http.post('http://52.16.209.9/register', JSON.stringify(credentials)).then(handleSuccess, function(response) {
-			$scope.err = response.data.message;
+            $scope.err = response.data.message;
         });
+    };
+
+    $scope.signOut = function() {
+        UserService.signOut();
+        $window.location.href = "/#/signin";
     };
 });

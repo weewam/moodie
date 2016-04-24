@@ -1,0 +1,24 @@
+<div id="welcome-screen" ng-controller="ApplicationController" class="page-container">
+	<div class="page">
+		<div style="background-image:url('{{user.avatar}}')"></div>
+
+		<header>
+				<figure class="avatar-circle" style="background-image:url('{{user.avatar}}')">
+				</figure>
+
+				<h1 class="page-title">Welcome <br/>{{ user.name }}</h1>
+		</header>
+
+		<div class="outer-content-container">
+			<div class="inner-content-container">
+				<section class="content">
+					<span>What would you like to do?</span>
+					<a id="discover-button" ng-href="#/start" class="button rounded">Discover new movies</a>
+					<a id="watchlist-button" ng-href="#/watchlist" class="button rounded">Visit watchlist</a>
+				</section>
+			</div>
+		</div>
+
+		<a id="sign-out-button" ng-click="signOut()" class="button rounded">sign out</a>
+	</div>
+</div>
