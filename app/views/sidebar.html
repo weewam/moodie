@@ -1,0 +1,16 @@
+<div id="sidebar" class="page-container">
+	<div class="page">
+
+		<ul class="person-list">
+
+			<li class="clearfix"><figure class="avatar-circle" style="background-image:url('{{user.avatar}}')"/>
+			<p>{{ user.name }}</p>
+			</li>
+
+			<li><a ng-href="#/watchlist">watchlist</a></li>
+			<li><a ng-href="#/start">new search</a></li>
+			<li><a ng-click="signOut()">sign out</a></li>
+		</ul>
+
+	</div>
+</div>

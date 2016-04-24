@@ -4,11 +4,12 @@
 <br/>
 <br/>
 <br/>
-<a ng-click="signInFacebook()" class="rounded button">Sign in with Facebook</a>
+<a ng-click="signInFacebook()" class="rounded button facebook">Sign in with Facebook</a>
 <br/>
 <br/>
+
 <form ng-submit="signIn(credentials)">
-	<h2>Sign in</h2>
+	<h1 class="sign">Sign in</h1>
 
 	<input name="email" type="email" ng-model="credentials.email" placeholder="Email">
 	<br/>
@@ -18,8 +19,9 @@
 	<input class="rounded button" type="submit" value="SIGN IN">
 </form>
 <br/>
+
 <br/>
-<br/>
+<p ng-show="err.length">{{err}}</p>
 <br/>
 <br/>
 

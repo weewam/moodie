@@ -1060,17 +1060,36 @@ header#fixed-header:after{
  */
 
 #signinup  .rounded.button {
-  position: absolute;
-  z-index: 1;
-  left: 50%;
-  transform: translateX(-50%);
+    z-index: 1;
+    line-height: 30px;
+    height: 30px;
+    font-size: 12px;
+    max-width: 230px;
+    background-color: #20C063;
+}
 
-  line-height: 44px;
-  height: 44px;
+#signinup  .rounded.button.facebook {
 
-  font-size: 12px;
-  max-width: 260px;
-  background-color: #20C063;
+  background-color: #3b5998;
+}
+
+#signinup  .sign {
+	margin-bottom:10px;
+  color: #FFFFFF;
+}
+
+/*
+ * sidebar
+ */
+
+#sidebar .avatar-circle{
+  margin: 0 auto;
+  position: relative;
+
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+
 }
 
 
