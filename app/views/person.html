@@ -1,8 +1,8 @@
-<div id="specific-actor" class="page-container">
+<div id="specific-actor" class="page-container" when-scrolled="scrollEvent()">
 	<div class="page">
-		<header id="backdrop" style="background : {{ getBackgroundUrl() ? 'url(' + getBackgroundUrl() + ')' : '' }}">
+		<header id="backdrop" style="background : {{ getLargePicUrl(person.picture) ? 'url(' + getLargePicUrl(person.picture) + ')' : '' }}">
 			<div class="centered-content">
-				<figure ng-show="person.picture" class="avatar-circle" style="background-image:url('{{ getBackgroundUrl() }}')">
+				<figure ng-show="person.picture" class="avatar-circle" style="background-image:url('{{ getLargePicUrl(person.picture) }}')">
 				</figure>
 
 				<h1 class="movie-title">{{ person.name }} </h1>
@@ -44,7 +44,7 @@
 						<li ng-repeat="film in row" class="movie">	
 							<a class="filmlist" ng-href="#/movie/{{ film.id }}">
 								<figure class="poster">
-									<img ng-show="film.poster" class="filmo" ng-src="{{ getPosterUrl(film.poster) }}">
+									<img ng-show="film.poster" class="filmo" ng-src="{{ getSmallPicUrl(film.poster) }}">
 								</figure>
 
 								<div class="info">

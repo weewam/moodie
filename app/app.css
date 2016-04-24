@@ -192,7 +192,7 @@ ul.person-list figure{
   width: 40px;
   height: 40px;
   overflow: hidden;
-  background: #000;
+  background: #26262F;
   position: relative;
   margin: 0 15px 0 0;
   border-radius: 36px;
@@ -663,6 +663,12 @@ header#fixed-header:after{
   background: #fff;
 }
 
+#specific-movie.crew-page .person-list,
+#specific-movie.cast-page .person-list{
+  min-height: 100%;
+  background: #fff;
+}
+
 #specific-movie header#backdrop{
   margin: 0;
   height: 0;
@@ -767,8 +773,8 @@ header#fixed-header:after{
  * Specific actor
  */
 #specific-actor .page{
-	color: #676B73;
-	background: #FFF;
+  color: #676B73;
+  background: #FFF;
 }
 
 #specific-actor .content {
@@ -811,7 +817,8 @@ header#fixed-header:after{
 #specific-actor figure.poster {
   margin: 0;
   overflow: hidden;
-
+  
+  background: #26262F;
   height: 0;
   width:100%;
   padding-bottom: 140%;
