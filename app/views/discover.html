@@ -1,5 +1,5 @@
 <div id="discover" ng-controller="ApplicationController" class="page-container">
-	<div class="page" >
+	<div class="page" ng-show="movies().length">
 		<ul class="movies">
 			<li class="movie clearfix" ng-repeat="movie in movies()" style="background-image: url('http://image.tmdb.org/t/p/w780{{movie.poster_path}}')">		
 				<h1 class="page-title">Discover</h1>
@@ -24,4 +24,5 @@
 			</li>
 		</ul>
 	</div>
+<ng-include ng-show="!movies().length" src="'views/noresults.html'"></ng-include>
 </div>

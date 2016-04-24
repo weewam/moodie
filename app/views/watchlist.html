@@ -9,7 +9,7 @@
 			</div>
 		</header>
 
-		<div class="content">
+		<div class="content" ng-show="watchlist.length">
 			<section ng-show="watchlist.length" class="cast clearfix">
 				<header class="clearfix">
 					<h3 class="with-border">Watchlist</h3>
@@ -32,5 +32,7 @@
 				</ul>
 			</section>
 		</div>
+
+		<ng-include ng-show="!watchlist.length" src="'views/nowatchlist.html'"></ng-include>
 	</div>
 </div>

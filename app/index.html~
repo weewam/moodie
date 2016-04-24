@@ -14,6 +14,29 @@
         <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
         <link rel="stylesheet" href="bower_components/angularjs-slider/dist/rzslider.css"/>
         <link rel="stylesheet" href="app.css">
+	<!-- Allow web app to be run in full-screen mode. -->
+    <meta name="apple-mobile-web-app-capable"
+          content="yes">
+
+    <!-- Make the app title different than the page title. -->
+    <meta name="apple-mobile-web-app-title"
+          content="Moodie">
+
+    <!-- Configure the status bar. -->
+    <meta name="apple-mobile-web-app-status-bar-style"
+          content="black">
+
+    <!-- Set the viewport. -->
+    <meta name="viewport"
+          content="initial-scale=1">
+
+    <!-- Disable automatic phone number detection. -->
+    <meta name="format-detection"
+          content="telephone=no">
+
+	<link href="images/icon"
+          sizes="120x120"
+          rel="apple-touch-icon-precomposed">
 
         <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
@@ -36,24 +59,20 @@
         <script src="bower_components/angular-route/angular-route.js"></script>
         <script src="bower_components/angularjs-slider/dist/rzslider.min.js"></script>
         <script src="bower_components/satellizer/satellizer.js"></script>
-	<script src="bower_components/angular-resource/angular-resource.js"></script>
+	    <script src="bower_components/angular-resource/angular-resource.js"></script>
         <script src="app.js"></script>
+
+        <script src="services/user.js"></script>
+        <script src="services/movie.js"></script>
+        <script src="services/person.js"></script>
+        <script src="services/discover.js"></script>
         
-        <script src="models/movie.js"></script>
-        <script src="models/person.js"></script>
-        <script src="models/user.js"></script>
-
-        <script src="services/auth.js"></script>
-	<script src="services/discoverService.js"></script>
-
-        <script src="controllers/additional-settings.js"></script>
+        <script src="controllers/application.js"></script>
         <script src="controllers/movie.js"></script>
         <script src="controllers/person.js"></script>
-        <script src="controllers/view1.js"></script>
-        <script src="controllers/view2.js"></script>
-        <script src="controllers/start1.js"></script>
-        <script src="controllers/signin.js"></script>
-        <script src="controllers/signup.js"></script>
+        <script src="controllers/start.js"></script>
+        <script src="controllers/auth.js"></script>
 	<script src="controllers/discover.js"></script>
+	<script src="controllers/watchlist.js"></script>
     </body>
 </html>

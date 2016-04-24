@@ -42,7 +42,9 @@ moodieApp.controller('StartCtrl', function ($scope, DiscoverService) {
         $scope.status = "Searching...";
 
 		DiscoverService.MovieSearch.get({with_genres:DiscoverService.setChosen(), 'vote_average.gte':DiscoverService.minRat, 'vote_average.lte':DiscoverService.maxRat, 'release_date.gte':(DiscoverService.minYear + '-01-01'), 'release_date.lte':(DiscoverService.maxYear + '-12-31')}, function(data) {
-				
+	
+		
+		
             $scope.movies=data.results;
             DiscoverService.currentSearch = data.results;
             $scope.status = "Showing " + data.results.length + " results";
