@@ -1,6 +1,6 @@
 <div id="specific-movie" class="page-container" when-scrolled="scrollEvent()">
 	<div class="page">
-		<header id="backdrop" style="background : {{ getBackgroundUrl() ? 'url(' + getBackgroundUrl() + ')' : '' }}" ng-class="{'show':largeHeader}">
+		<header id="backdrop" style="background: {{ getLargePicUrl(movie.background) ? 'url(' + getLargePicUrl(movie.background) + ')' : '' }}" ng-class="{'show':largeHeader}">
 			<div class="content">
 				<figure class="rating-circle">
 					<div class="inner">
@@ -9,7 +9,7 @@
 					</div>
 				</figure>
 
-				<h1 id="movie-title">{{ movie.title }} <span class="year">{{ getYear() }}</span></h1>
+				<h1 id="movie-title">{{ movie.title }} <span class="year">{{ getYear(movie.release_date) }}</span></h1>
 				<ul class="genre-list">
 					<li ng-repeat="genre in movie.genres | limitTo: 4">{{ genre }}</li>
 				</ul>
@@ -18,7 +18,7 @@
 			<a ng-show="movie.trailer" ng-href="{{ getTrailerUrl() }}" target="_blank" class="rounded button">Watch trailer</a>
 		</header>
 
-		<header id="fixed-header"  ng-class="{'show':!largeHeader}" style="background : {{ getBackgroundUrl() ? 'url(' + getBackgroundUrl() + ')' : '' }}">
+		<header id="fixed-header"  ng-class="{'show':!largeHeader}" style="background : {{ getLargePicUrl(movie.background) ? 'url(' + getLargePicUrl(movie.background) + ')' : '' }}">
 			<h1 class="page-title">{{ movie.title }}</h1>
 		</header>
 
@@ -54,7 +54,7 @@
 					<li ng-repeat="actor in movie.cast | limitTo: 3">
 						<a class="clearfix" ng-href="#/person/{{ actor.id }}">
 							<figure>
-								<img ng-show="actor.avatar" src="{{ getAvatarUrl(actor.avatar) }}">
+								<img ng-show="actor.avatar" src="{{ getSmallPicUrl(actor.avatar) }}">
 							</figure>
 
 							<p>{{ actor.name }}</p>

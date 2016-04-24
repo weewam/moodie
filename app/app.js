@@ -99,3 +99,10 @@ moodieApp.directive('whenScrolled', function($window, $timeout) {
     };
 });
 
+moodieApp.run(function($location) {
+   	var user = JSON.parse(localStorage.getItem('user'));
+
+   	if (!user && ($location.$$path !== "/signin" || $location.$$path !== "/signup")) {
+        $location.path("/signin");
+    };
+});
