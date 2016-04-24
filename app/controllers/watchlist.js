@@ -2,14 +2,14 @@
 
 moodieApp.controller('watchlistCtrl', function ($scope, UserService) {
 	$scope.editMode = false;
-		
-	$scope.user = UserService.getUser();
-	
-	$scope.watchlist = [];
 
-	$scope.getWatchlist = function(){
+	$scope.user = UserService.getUser();
+
+	$scope.queryWatchlist = function(){
 		UserService.watchList.query({}, function(data){
-			$scope.watchlist = data;
+			UserService.setWatchlist(data);
+
+			$scope.watchlist = UserService.getWatchlist();
 		});
 	}
 
@@ -18,8 +18,10 @@ moodieApp.controller('watchlistCtrl', function ($scope, UserService) {
 	}
 
 	$scope.removeFromWatchlist = function(id){
-		UserService.watchList.delete({ 'movie_id' : id });
+		UserService.watchList.delete({ 'movie_id' : id }, function(){
+			$scope.queryWatchlist();
+		})
 	}
 
-	$scope.getWatchlist();
+	$scope.queryWatchlist();
 });
