@@ -4,14 +4,9 @@ moodieApp.controller('ApplicationController', function($scope, $location, UserSe
     $scope.user = UserService.getUser();
 
     //User is not logged in
-    if (!UserService.getUser()) {
-        console.log()
+    if (!UserService.getUser() && ($location.$$path === "/signin" || $location.$$path === "/signup")) {
         $location.path("/signin");
     };
-
-    $scope.getWatchlist = function(){
-        UserService.watchList.query({});
-    }
     
     $scope.isInWatchlist = function(id){
         UserService.watchList.get({ 'movie_id' : id });

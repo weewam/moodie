@@ -27,7 +27,6 @@ moodieApp.factory('MovieService', function($resource) {
         movie.background = data.backdrop_path;
         movie.release_date = data.release_date;
         movie.trailer = (data.trailers && data.trailers.youtube.length) ? data.trailers.youtube[0] : null;
-        console.log(movie.trailer);
 
         movie.genres = [];
         //Populate genre list with necessary data
