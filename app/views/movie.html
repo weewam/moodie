@@ -1,6 +1,6 @@
-<div id="specific-movie" class="page-container" when-scrolled="myScrollEvent()">
+<div id="specific-movie" ng-controller="ApplicationController" class="page-container" when-scrolled="scrollEvent()">
 	<div class="page">
-		<header id="backdrop" style="background: url({{ getBackgroundUrl() }})" ng-class="{'show':largeHeader}">
+		<header id="backdrop" style="background : {{ getBackgroundUrl() ? 'url(' + getBackgroundUrl() + ')' : '' }}" ng-class="{'show':largeHeader}">
 			<div class="content">
 				<figure class="rating-circle">
 					<div class="inner">
@@ -18,7 +18,7 @@
 			<a ng-show="movie.trailer" ng-href="{{ getTrailerUrl() }}" target="_blank" class="rounded button">Watch trailer</a>
 		</header>
 
-		<header id="fixed-header"  ng-class="{'show':!largeHeader}" style="background: url({{ getBackgroundUrl() }})">
+		<header id="fixed-header"  ng-class="{'show':!largeHeader}" style="background : {{ getBackgroundUrl() ? 'url(' + getBackgroundUrl() + ')' : '' }}">
 			<h1 class="page-title">{{ movie.title }}</h1>
 		</header>
 
@@ -35,7 +35,7 @@
 		</section>
 
 		<div class="content">
-			<section class="synopsis clearfix">
+			<section ng-show="movie.synopsis.length" class="synopsis clearfix">
 				<header class="clearfix">
 					<h3 class="with-border">Synopsis</h3>
 				</header>

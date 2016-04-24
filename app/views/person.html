@@ -1,12 +1,16 @@
-<div id="specific-actor" class="page-container">
+<div id="specific-actor" ng-controller="ApplicationController" class="page-container">
 	<div class="page">
-		<header id="backdrop" style="background:url('{{ getAvatarUrl() }}')">
+		<header id="backdrop" style="background : {{ getBackgroundUrl() ? 'url(' + getBackgroundUrl() + ')' : '' }}">
 			<div class="centered-content">
 				<figure ng-show="person.picture" class="avatar-circle" style="background-image:url('{{ getBackgroundUrl() }}')">
 				</figure>
 
 				<h1 class="movie-title">{{ person.name }} </h1>
 			</div>
+		</header>
+
+		<header id="fixed-header"  ng-class="{'show':!largeHeader}" style="background : {{ getBackgroundUrl() ? 'url(' + getBackgroundUrl() + ')' : '' }}">
+			<h1 class="page-title">{{ person.name }}</h1>
 		</header>
 
 		<section class="trivia clearfix">

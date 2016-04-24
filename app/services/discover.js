@@ -3,7 +3,7 @@
 // dependency on any service you need. Angular will insure that the
 // service is created first time it is needed and then just reuse it
 // the next time.
-moodieApp.factory('discoverService', function ($resource) {
+moodieApp.factory('DiscoverService', function ($resource) {
 
   // TODO in Lab 5: Add your model code from previous labs
   // feel free to remove above example code

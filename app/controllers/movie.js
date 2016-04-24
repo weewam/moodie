@@ -1,8 +1,8 @@
 'use strict';
 
-moodieApp.controller('MovieCtrl', function($scope, $window, $routeParams, movieService) {
+moodieApp.controller('MovieCtrl', function($scope, $window, $routeParams, MovieService) {
     $scope.largeHeader = true;
-    $scope.movie = movieService.getMovie();
+    $scope.movie = MovieService.getMovie();
 
     $scope.getYear = function() {
         return $scope.movie.release_date.substring(0, 4);
@@ -16,7 +16,7 @@ moodieApp.controller('MovieCtrl', function($scope, $window, $routeParams, movieS
     };
 
     $scope.getBackgroundUrl = function() {
-      return "http://image.tmdb.org/t/p/w780" + $scope.movie.background; 
+      return ($scope.movie.background) ? "http://image.tmdb.org/t/p/w780" + $scope.movie.background : null; 
     };
 
     $scope.getTrailerUrl = function() {
@@ -27,14 +27,14 @@ moodieApp.controller('MovieCtrl', function($scope, $window, $routeParams, movieS
       return "http://image.tmdb.org/t/p/w185" + actor_id;
     };
 
-    $scope.myScrollEvent = function() {
+    $scope.scrollEvent = function() {
         var el = document.getElementById('backdrop');
 
         $scope.largeHeader = ($window.pageYOffset < (el.offsetHeight - 60));
     }
 
-    movieService.loadMovie.get({ id : $routeParams.MovieID }, function(data) {
-        movieService.setMovie(data);
+    MovieService.loadMovie.get({ id : $routeParams.MovieID }, function(data) {
+        MovieService.setMovie(data);
         $window.scrollTo(0,0)
     });
 });

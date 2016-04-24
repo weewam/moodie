@@ -1,7 +1,7 @@
 /* 
   Movie Service
 */
-moodieApp.factory('movieService', function($resource) {
+moodieApp.factory('MovieService', function($resource) {
     //Template
     var movie = {
         id: null,

@@ -389,6 +389,54 @@ header#backdrop h1{
 }
 
 /*
+ * Fixed header
+ */
+header#fixed-header{
+  background: #26262F;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  color: #fff;
+
+  background-size: cover!important;
+  background-repeat: no-repeat!important;
+  background-position: center center!important;
+  opacity: 0;
+
+
+  -webkit-transition: opacity 200ms ease;
+  -moz-transition: opacity 200ms ease;
+  -ms-transition: opacity 200ms ease;
+  -o-transition: opacity 200ms ease;
+  transition: opacity 200ms ease;
+}
+
+header#fixed-header h1.page-title{
+  z-index: 1;
+  padding: 20px 0;
+  position: relative;
+
+  font-size: 18px;
+}
+
+header#fixed-header.show{
+  opacity: 1;
+}
+
+header#fixed-header:after{
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  background: rgba(38, 38, 47, 0.9);
+}
+
+/*
  * Start screen styling
  */
 #start-screen .page{
@@ -613,50 +661,6 @@ header#backdrop h1{
 /* Specific movie */
 #specific-movie .page{
   background: #fff;
-}
-
-#specific-movie header#fixed-header{
-  width: 100%;
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  color: #fff;
-
-  background-size: cover!important;
-  background-repeat: no-repeat!important;
-  background-position: center center!important;
-  opacity: 0;
-
-
-  -webkit-transition: opacity 200ms ease;
-  -moz-transition: opacity 200ms ease;
-  -ms-transition: opacity 200ms ease;
-  -o-transition: opacity 200ms ease;
-  transition: opacity 200ms ease;
-}
-
-#specific-movie header#fixed-header h1.page-title{
-  z-index: 1;
-  padding: 20px 0;
-  position: relative;
-
-  font-size: 18px;
-}
-
-#specific-movie header#fixed-header.show{
-  opacity: 1;
-}
-
-#specific-movie header#fixed-header:after{
-  content: "";
-
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-  background: rgba(38, 38, 47, 0.9);
 }
 
 #specific-movie header#backdrop{
@@ -932,16 +936,17 @@ header#backdrop h1{
 
   right: 0;
   position: relative;
+  transform: translateX(0px);
 
-  -webkit-transition: margin 100ms linear;
-  -moz-transition: margin 100ms linear;
-  -ms-transition: margin 100ms linear;
-  -o-transition: margin 100ms linear;
-  transition: margin 100ms linear;
+  -webkit-transition: transform 100ms linear;
+  -moz-transition: transform 100ms linear;
+  -ms-transition: transform 100ms linear;
+  -o-transition: transform 100ms linear;
+  transition: transform 100ms linear;
 }
 
 #watchlist .movie.edit-mode figure {
-  margin-left: -100px;
+  transform: translateX(-100px);
 }
 
 #watchlist .movie figure img{
@@ -954,6 +959,18 @@ header#backdrop h1{
   height: 100px;
   padding: 28px 15px;
   width: calc(100% - 100px);
+  
+  transform: translateX(0px);
+
+  -webkit-transition: transform 100ms linear;
+  -moz-transition: transform 100ms linear;
+  -ms-transition: transform 100ms linear;
+  -o-transition: transform 100ms linear;
+  transition: transform 100ms linear;
+}
+
+#watchlist .movie.edit-mode .info {
+  transform: translateX(-100px);
 }
 
 #watchlist .movie .info p {
@@ -979,7 +996,6 @@ header#backdrop h1{
 #watchlist .movie .remove.button {
   position: absolute;
   z-index: 2;
-  right: -100px;
   top: 0;
 
   padding: 0px 15px;
@@ -992,16 +1008,18 @@ header#backdrop h1{
   line-height: 100px;
   letter-spacing: 1.3px;
   font-family: 'montserratultra_light';
+  right: 0px;
+  transform: translateX(100px);
 
-  -webkit-transition: right 100ms linear;
-  -moz-transition: right 100ms linear;
-  -ms-transition: right 100ms linear;
-  -o-transition: right 100ms linear;
-  transition: right 100ms linear;
+  -webkit-transition: transform 100ms linear;
+  -moz-transition: transform 100ms linear;
+  -ms-transition: transform 100ms linear;
+  -o-transition: transform 100ms linear;
+  transition: transform 100ms linear;
 }
 
 #watchlist .movie-list .edit-mode .remove.button {
-  right: 0px;
+  transform: translateX(0);
 }
 
 /* ==========================================================================

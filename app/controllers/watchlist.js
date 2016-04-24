@@ -1,14 +1,14 @@
 'use strict';
 
-moodieApp.controller('watchlistCtrl', function ($scope, AuthService) {
+moodieApp.controller('watchlistCtrl', function ($scope, UserService) {
 	$scope.editMode = false;
 		
-	$scope.user = AuthService.getUser();
+	$scope.user = UserService.getUser();
 	
 	$scope.watchlist = [];
 
 	$scope.getWatchlist = function(){
-		AuthService.watchList.query({}, function(data){
+		UserService.watchList.query({}, function(data){
 			$scope.watchlist = data;
 		});
 	}
@@ -18,7 +18,7 @@ moodieApp.controller('watchlistCtrl', function ($scope, AuthService) {
 	}
 
 	$scope.removeFromWatchlist = function(id){
-		AuthService.watchList.delete({ 'movie_id' : id });
+		UserService.watchList.delete({ 'movie_id' : id });
 	}
 
 	$scope.getWatchlist();

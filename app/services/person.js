@@ -1,7 +1,7 @@
 /* 
     Person model
 */
-moodieApp.factory('personService', function ($resource) {
+moodieApp.factory('PersonService', function ($resource) {
     //Template
     var person = {
         id : null,

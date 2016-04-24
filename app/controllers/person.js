@@ -1,14 +1,15 @@
 'use strict';
 
-moodieApp.controller('PersonCtrl', function($scope, $window, $routeParams, $http, personService) {
-    $scope.person = personService.getPerson();
+moodieApp.controller('PersonCtrl', function($scope, $window, $routeParams, $http, PersonService) {
+    $scope.largeHeader = true;
+    $scope.person = PersonService.getPerson();
 
     $scope.getBirthTown = function() {
         return ($scope.person.birth_place) ? $scope.person.birth_place.split(",")[0] : null;
     }
 
     $scope.getBackgroundUrl = function() {
-      return "http://image.tmdb.org/t/p/w780" + $scope.person.picture; 
+      return ($scope.person.background) ? "http://image.tmdb.org/t/p/w780" + $scope.person.background : null; 
     };
 
     $scope.getAvatarUrl = function() {
@@ -23,8 +24,14 @@ moodieApp.controller('PersonCtrl', function($scope, $window, $routeParams, $http
       return "http://image.tmdb.org/t/p/w185" + movie_id;
     };
 
-    personService.loadPerson.get({ id : $routeParams.PersonID }, function(data) {
-        personService.setPerson(data);
+    $scope.scrollEvent = function() {
+        var el = document.getElementById('backdrop');
+
+        $scope.largeHeader = ($window.pageYOffset < (el.offsetHeight - 60));
+    }
+
+    PersonService.loadPerson.get({ id : $routeParams.PersonID }, function(data) {
+        PersonService.setPerson(data);
 
         var arr = [];
 

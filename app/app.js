@@ -11,11 +11,11 @@ moodieApp.config(function($routeProvider, $httpProvider, $authProvider) {
 		}).
 		when('/signin', {
 			templateUrl: 'views/signin.html',
-			controller: 'SigninCtrl'
+			controller: 'AuthCtrl'
 		}).
 		when('/signup', {
 			templateUrl: 'views/signup.html',
-			controller: 'SignupCtrl'
+			controller: 'AuthCtrl'
 		}).
 		when('/movie/:MovieID', {
 			templateUrl: 'views/movie.html',
