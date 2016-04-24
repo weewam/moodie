@@ -43,6 +43,13 @@ body {
 html,
 body {
   height: 100%;
+-webkit-text-size-adjust: 100%;
+}
+
+img.logo {
+	width:100%; 
+margin-top:20px; 
+margin-bottom:20px;
 }
 
 .menu {
@@ -869,7 +876,7 @@ header#fixed-header:after{
 }
 
 /*
- * Specific actor
+ * watchlist
  */
 #watchlist .page{
   background: #fff;
@@ -1029,6 +1036,43 @@ header#fixed-header:after{
 #watchlist .movie-list .edit-mode .remove.button {
   transform: translateX(0);
 }
+#watchlist p {
+  text-align:center;
+}
+
+#watchlist  .rounded.button {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
+
+  line-height: 44px;
+  height: 44px;
+
+  font-size: 12px;
+  max-width: 260px;
+  background-color: #20C063;
+}
+
+
+/*
+ * signin signup
+ */
+
+#signinup  .rounded.button {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
+
+  line-height: 44px;
+  height: 44px;
+
+  font-size: 12px;
+  max-width: 260px;
+  background-color: #20C063;
+}
+
 
 /* ==========================================================================
    @font-face
