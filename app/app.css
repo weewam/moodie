@@ -1156,7 +1156,21 @@ header#fixed-header:after{
 #watchlist .movie-list .edit-mode .remove.button {
   transform: translateX(0);
 }
+#watchlist  .rounded.button.nw {
+    z-index: 1;
+    font-size: 12px;
+    max-width: 280px;
+    background-color: #20C063;
+    height: 44px;
+    line-height: 44px;
+	margin-left:12%;
+	margin-top: 20px; 
+}
 
+#watchlist .fixed-header-padding {
+  text-align: center;
+
+}
 
 /*
  * signin signup
