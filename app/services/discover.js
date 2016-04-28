@@ -151,7 +151,7 @@ moodieApp.factory('DiscoverService', function ($resource) {
 					chosenGenres = this.genres[i].id;
 				}
 				else {
-				chosenGenres = chosenGenres + ',' + this.genres[i].id;
+				chosenGenres = chosenGenres + '|' + this.genres[i].id;
 				}
 			}
 		}
